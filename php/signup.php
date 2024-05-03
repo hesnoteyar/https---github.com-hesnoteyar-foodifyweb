@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$username', '$email', '$password', '$firstname', '$middlename', '$lastname', '$age', '$house', '$barangay', '$region', '$postal', '$phone', '$height', '$weight')";
 
     if ($conn->query($sql) === TRUE) {
-        header("Location: /foodifyweb/index.html");
+        header("Location: /foodifyweb/html/verification.html");
         exit(); 
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
