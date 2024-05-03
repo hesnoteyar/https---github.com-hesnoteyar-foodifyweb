@@ -27,6 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $height = $_POST["height"];
     $weight = $_POST["weight"];
 
+    // Check if email already exists
+    $check_email_query = "SELECT * FROM users WHERE email='$email'";
+    $check_email_result = $conn->query($check_email_query);
+    if ($check_email_result->num_rows > 0) {
+        echo "Error: Email already exists in the database.";
+        exit();
+    }
+
     // SQL query to insert data into users table
     $sql = "INSERT INTO users (username, email, password, firstname, middlename, lastname, age, house, barangay, region, postal, phone, height, weight) 
             VALUES ('$username', '$email', '$password', '$firstname', '$middlename', '$lastname', '$age', '$house', '$barangay', '$region', '$postal', '$phone', '$height', '$weight')";
