@@ -21,14 +21,21 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/images/backgroundmain.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    opacity: 80%;
-    filter: blur(2px);
-     z-index: -1; 
+    overflow: hidden; /* Hide overflow content */
+    z-index: -1; /* Send background behind other content */
 }
+
+.background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Scale the image to cover entire div */
+    opacity: 0.8; /* Adjust opacity as per your requirement */
+    filter: blur(2px); /* Apply blur effect */
+}
+
 
 nav {
     margin-top: 0px;
@@ -244,14 +251,26 @@ button:hover {
 .about-section {
     margin-top: 20%;
     margin-left: 50px;
-    background: url('/images/aboutusbanner.jpg') no-repeat left;
-    background-size: 55%;
+    margin-right: 50px;
+    background: url('images/aboutusbanner.jpg') no-repeat left;
+    background-size: 45%;
     height: auto;
     background-color: transparent;
     overflow: hidden;
     padding: 100px;
+    position: relative; /* Add position relative to enable z-index */
 }
 
+.about-section img {
+    position: absolute; /* Position the image absolutely */
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    width: 50%;
+    height: 100%;
+    object-fit: cover; /* Scale the image to cover entire div */
+    z-index: -1; /* Send image behind other content */
+}
 .inner-container {
     border-radius: 10px;
     width: 55%;
