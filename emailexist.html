@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/emailexist.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+
+</head>
+
+<body>
+    <div class="exist-container">
+        <img src="images/emailexisticon.png" alt="verification">
+        <h2>Email verification failed</h2>
+        
+        <h3>Your email is already in used</h3>
+
+        <div class="button-container">
+            <button class="back-to-home-btn" onclick="navigateToHome()">Back to Home</button>
+        </div>
+    </div>
+
+    <script>
+        function navigateToHome() {
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
