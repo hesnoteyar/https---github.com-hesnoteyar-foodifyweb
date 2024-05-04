@@ -1,31 +1,79 @@
 <?php
 
+// Database connection parameters
 $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "G8CASESTUDY";
 
-$conn = new mysqli($servername, $username, $password, $database);
+// Create connection
+$conn = new mysqli($servername, $username, $password);
 
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Create database if it doesn't exist
+$sql = "CREATE DATABASE IF NOT EXISTS $database";
+if ($conn->query($sql) === TRUE) {
+    // Database creation success message removed
+} else {
+    echo "Error creating database: " . $conn->error;
+}
+
+// Select the database
+$conn->select_db($database);
+
+// Check if the database selection was successful
+if ($conn->error) {
+    die("Error selecting database: " . $conn->error);
+}
+
+// Define the table creation query
+$table_query = "CREATE TABLE IF NOT EXISTS users (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    firstname VARCHAR(50) NOT NULL,
+    middlename VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
+    age INT(3) NOT NULL,
+    house VARCHAR(100) NOT NULL,
+    barangay VARCHAR(100) NOT NULL,
+    region VARCHAR(100) NOT NULL,
+    postal INT(6) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    height INT(3) NOT NULL,
+    weight INT(3) NOT NULL,
+    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)";
+
+// Execute the table creation query
+if ($conn->query($table_query) === TRUE) {
+    // Table creation success message removed
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+
+// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $password = $_POST["password1"];
-    $firstname = $_POST["firstname"];
-    $middlename = $_POST["middlename"];
-    $lastname = $_POST["lastname"];
-    $age = $_POST["age"];
-    $house = $_POST["house"];
-    $barangay = $_POST["barangay"];
-    $region = $_POST["region"];
-    $postal = $_POST["postal"];
-    $phone = $_POST["phone"];
-    $height = $_POST["height"];
-    $weight = $_POST["weight"];
+    // Retrieve form data
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password1'];
+    $firstname = $_POST['firstname'];
+    $middlename = $_POST['middlename'];
+    $lastname = $_POST['lastname'];
+    $age = $_POST['age'];
+    $house = $_POST['house'];
+    $barangay = $_POST['barangay'];
+    $region = $_POST['region'];
+    $postal = $_POST['postal'];
+    $phone = $_POST['phone'];
+    $height = $_POST['height'];
+    $weight = $_POST['weight'];
 
     // Check if email already exists
     $check_email_query = "SELECT * FROM users WHERE email='$email'";
@@ -36,17 +84,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // SQL query to insert data into users table
-    $sql = "INSERT INTO users (username, email, password, firstname, middlename, lastname, age, house, barangay, region, postal, phone, height, weight) 
-            VALUES ('$username', '$email', '$password', '$firstname', '$middlename', '$lastname', '$age', '$house', '$barangay', '$region', '$postal', '$phone', '$height', '$weight')";
+    $insert_query = "INSERT INTO users (username, email, password, firstname, middlename, lastname, age, house, barangay, region, postal, phone, height, weight) 
+                     VALUES ('$username', '$email', '$password', '$firstname', '$middlename', '$lastname', '$age', '$house', '$barangay', '$region', '$postal', '$phone', '$height', '$weight')";
 
-    if ($conn->query($sql) === TRUE) {
+    // Execute the insert query
+    if ($conn->query($insert_query) === TRUE) {
         header("Location: /foodifyweb/verification.html");
         exit(); 
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $insert_query . "<br>" . $conn->error;
     }
 }
 
 // Close connection
 $conn->close();
+
 ?>
