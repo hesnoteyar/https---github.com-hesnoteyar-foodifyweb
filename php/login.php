@@ -18,7 +18,10 @@ $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    echo "Login successful!";
+
+    header("Location: /foodifyweb/home.html");
+    exit(); 
+
 } else {
     echo "Invalid email or password";
 }
