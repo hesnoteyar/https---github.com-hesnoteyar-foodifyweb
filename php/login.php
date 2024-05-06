@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+$sql = "SELECT id FROM users WHERE email = '$email' AND password = '$password'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -22,8 +22,12 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $id = $row['id'];
 
+    // Start session and set session ID
+    session_start();
+    $_SESSION['id'] = $id;
+
     // Redirect to home.php with user ID as URL parameter
-    header("Location: /foodifyweb/home.php?id=$id");
+    header("Location: /foodifyweb/home.php");
     exit(); 
 } else {
     echo "Invalid email or password";
