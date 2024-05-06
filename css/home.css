@@ -139,3 +139,82 @@ button:hover {
     cursor: pointer;
 }
 
+/* Value container style */
+.value-container {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Profile item (label and value) */
+.profile-item {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between; /* Align label and value horizontally */
+}
+
+/* Label style */
+.label {
+    color: #4aad58;
+    font-family: "Vollkorn", serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* Value style */
+.value {
+    color: #7d7d7d;
+    font-family: "Vollkorn", serif;
+}
+
+/* Profile section */
+#profile {
+    margin: 10% auto; /* Center vertically and horizontally */
+    margin-top: 7%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    max-width: 600px;
+    font-family: "Vollkorn", serif;
+}
+
+/* Profile info container */
+.profile-info {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+/* Profile item (label and value) */
+.profile-item {
+    margin-bottom: 10px;
+}
+
+/* Label style */
+.label {
+    color: #4aad58;
+    font-family: "Vollkorn", serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* Value style */
+.value {
+    color: #7d7d7d;
+    font-family: "Vollkorn", serif;
+}
+
+/* Unit style */
+.unit {
+    color: #7d7d7d;
+    float: right;
+    font-family: "Vollkorn", serif;
+}
+
+
+

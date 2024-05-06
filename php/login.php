@@ -18,10 +18,13 @@ $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+    // Fetch the user ID
+    $row = $result->fetch_assoc();
+    $id = $row['id'];
 
-    header("Location: /foodifyweb/home.html");
+    // Redirect to home.php with user ID as URL parameter
+    header("Location: /foodifyweb/home.php?id=$id");
     exit(); 
-
 } else {
     echo "Invalid email or password";
 }
