@@ -24,7 +24,7 @@
             <div class="dropdown-content">
                 <a href="home.php">Home</a>
                 <a href="#" id="profileLink">Profile</a> <!-- Profile link with ID for JavaScript -->
-                <a href="#">History</a>
+                <a href="history.php">History</a>
                 <a href="#">Order</a>
                 <a href="#">Meal Prep</a>
                 <a href="#">Logout</a>

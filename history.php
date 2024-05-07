@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodify Web Browser</title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/history.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,9 +22,9 @@
         <ul class="dropdown">
             <button class="dropdownbtn">Menu<i class="ri-arrow-down-s-line"></i></button>
             <div class="dropdown-content">
-                <a href="#home">Home</a>
+                <a href="home.php">Home</a>
                 <a href="#" id="profileLink">Profile</a> <!-- Profile link with ID for JavaScript -->
-                <a href="history.php">History</a>
+                <a href="#">History</a>
                 <a href="#">Order</a>
                 <a href="#">Meal Prep</a>
                 <a href="#">Logout</a>
@@ -32,20 +32,7 @@
         </ul>
     </nav>
 
-    <div class="row banner">
-        <div class="banner-room">
-            <img class="imagehome" src="images/homepageimg.png" alt="image">
-            <h1>Healthy eating,
-                <br>made easy
-                <br>with foodify.
-
-                <br><button class="button">Order Now</button>
-            </h1>
-        </div>
-    </div>
-</header>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
     // Click event for the profile link
@@ -66,6 +53,3 @@ $(document).ready(function(){
     });
 });
 </script>
-
-</body>
-</html>
