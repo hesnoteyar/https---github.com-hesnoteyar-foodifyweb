@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodify Web Browser</title>
-    <link rel="stylesheet" href="css/history.css">
+    <link rel="stylesheet" href="css/order.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,8 @@
             <div class="dropdown-content">
                 <a href="home.php">Home</a>
                 <a href="#" id="profileLink">Profile</a> <!-- Profile link with ID for JavaScript -->
-                <a href="">History</a>
-                <a href="order.php">Order</a>
+                <a href="history.php">History</a>
+                <a href="#">Order</a>
                 <a href="mealprep.php">Meal Prep</a>
                 <a href="#">Logout</a>
             </div>
@@ -33,9 +33,33 @@
     </nav>
 </header>
 
-    <body>
-    <h2>This is history page</h2>
-    </body>
+<body>
+    <div class="order-container">
+        <h2>What's on your mind?</h2>
+        <div class="search-container">
+            <input type="text" id="order" name="order" placeholder="find food you love">
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

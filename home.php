@@ -25,8 +25,8 @@
                 <a href="#home">Home</a>
                 <a href="#" id="profileLink">Profile</a> <!-- Profile link with ID for JavaScript -->
                 <a href="history.php">History</a>
-                <a href="#">Order</a>
-                <a href="#">Meal Prep</a>
+                <a href="order.php">Order</a>
+                <a href="mealprep.php">Meal Prep</a>
                 <a href="#">Logout</a>
             </div>
         </ul>

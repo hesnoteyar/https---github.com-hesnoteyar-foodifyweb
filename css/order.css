@@ -97,6 +97,35 @@ nav img {
     border-radius: 10px;
 }
 
-h2 {
-    margin-top: 20%;
+.order-container {
+    position: absolute;
+    top: 20%; /* Adjusted top value */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1500px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+}
+
+
+.order-container h2 {
+    font-family: "Vollkorn", serif;
+    font-size: 30px;
+    color: #7f7f7f;
+}
+
+.search-container {
+    position: absolute;
+    top: 20%; /* Adjusted top value */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1500px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background-color: #D9D9D9;
+    border-radius: 10px;
 }
