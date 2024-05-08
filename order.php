@@ -37,9 +37,81 @@
     <div class="order-container">
         <h2>What's on your mind?</h2>
         <div class="search-container">
-            <input type="text" id="order" name="order" placeholder="find food you love">
+            <div class="order-input-element">
+                <input type="text" id="order" name="order" placeholder="find food you love">
+            </div>
+            <div class="order-banner-container">
+                <img src="images\order_banner1.jpg" alt="banner1">
+                <img src="images\order_banner2.png" alt="banner2">
+                <img src="images\order_banner3.png" alt="banner3">
+            </div>
         </div>
+
+        <div class="siomai-container">
+            <label class="siomai-label">Siomai w/ Rice</label>
+            <div class="siomai-details">
+                <img src="images/siomai_order.png" alt="siomai">
+                <div class="quantity-controls">
+                    <button class="decrease-btn">-</button>
+                    <input type="text" class="quantity-input" value="1">
+                    <button class="increase-btn">+</button>
+                </div>
+            </div>
+            <div class="siomai-actions">
+                <button class="buy-btn">Buy</button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="siomai-container">
+            <label class="siomai-label">Siomai w/ Rice</label>
+            <div class="siomai-details">
+                <img src="images/siomai_order.png" alt="siomai">
+                <div class="quantity-controls">
+                    <button class="decrease-btn">-</button>
+                    <input type="text" class="quantity-input" value="1">
+                    <button class="increase-btn">+</button>
+                </div>
+            </div>
+            <div class="siomai-actions">
+                <button class="buy-btn">Buy</button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        
     </div>
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const decreaseBtn = document.querySelector('.decrease-btn');
+            const increaseBtn = document.querySelector('.increase-btn');
+            const quantityInput = document.querySelector('.quantity-input');
+            
+            // Function to handle decrease button click
+            decreaseBtn.addEventListener('click', function() {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                }
+            });
+
+            // Function to handle increase button click
+            increaseBtn.addEventListener('click', function() {
+                let currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+            });
+
+            // Prevent typing in the input field
+            quantityInput.addEventListener('keydown', function(event) {
+                event.preventDefault();
+            });
+        });
+    </script>
+
 </body>
 
 
