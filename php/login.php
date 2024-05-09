@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $servername = "localhost"; 
 $username = "root"; 
@@ -22,17 +23,15 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $id = $row['id'];
 
-    // Start session and set session ID
-    session_start();
+    // Set session ID
     $_SESSION['id'] = $id;
 
-    // Redirect to home.php with user ID as URL parameter
+    // Redirect to home.php
     header("Location: /foodifyweb/home.php");
     exit(); 
 } else {
     echo "Invalid email or password";
 }
 
-// Close the database connection
 $conn->close();
 ?>

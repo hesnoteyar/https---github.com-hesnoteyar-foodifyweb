@@ -111,7 +111,7 @@
             </div>
         </div>
 
-        <div class="siomai-container">
+                <div class="siomai-container">
             <label class="siomai-label">Siomai w/ Rice</label>
             <div class="siomai-details">
                 <img src="images/siomai_order.png" alt="siomai">
@@ -159,6 +159,58 @@
             });
         });
     </script>
+
+<?php
+// Include database connection configuration
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "G8CASESTUDY";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Check if the table already exists
+$tableExistsQuery = "SHOW TABLES LIKE 'menu_order'";
+$tableExistsResult = $conn->query($tableExistsQuery);
+
+if ($tableExistsResult->num_rows == 0) {
+    // Table does not exist, create it
+    $createTableQuery = "CREATE TABLE menu_order (
+        ID INT(11) AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        price INT(11) NOT NULL
+    )";
+
+    if ($conn->query($createTableQuery) === TRUE) {
+        // Table created successfully, insert initial data
+        $insertDataQuery = "INSERT INTO menu_order (name, price) VALUES
+            ('Siomai', 45),
+            ('Adobo', 70),
+            ('Mechado', 65),
+            ('Paksiw', 55),
+            ('Pakbet', 75)";
+
+        if ($conn->query($insertDataQuery) === TRUE) {
+            echo "Menu order table created and initial data inserted successfully.";
+        } else {
+            echo "Error inserting data: " . $conn->error;
+        }
+    } else {
+        echo "Error creating table: " . $conn->error;
+    }
+} else {
+    echo "Menu order table already exists.";
+}
+
+// Close connection
+$conn->close();
+?>
 
 </body>
 
