@@ -78,6 +78,54 @@
                 <button class="add-to-cart-btn">Add to Cart</button>
             </div>
         </div>
+
+        <div class="siomai-container">
+            <label class="siomai-label">Siomai w/ Rice</label>
+            <div class="siomai-details">
+                <img src="images/siomai_order.png" alt="siomai">
+                <div class="quantity-controls">
+                    <button class="decrease-btn">-</button>
+                    <input type="text" class="quantity-input" value="1">
+                    <button class="increase-btn">+</button>
+                </div>
+            </div>
+            <div class="siomai-actions">
+                <button class="buy-btn">Buy</button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="siomai-container">
+            <label class="siomai-label">Siomai w/ Rice</label>
+            <div class="siomai-details">
+                <img src="images/siomai_order.png" alt="siomai">
+                <div class="quantity-controls">
+                    <button class="decrease-btn">-</button>
+                    <input type="text" class="quantity-input" value="1">
+                    <button class="increase-btn">+</button>
+                </div>
+            </div>
+            <div class="siomai-actions">
+                <button class="buy-btn">Buy</button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="siomai-container">
+            <label class="siomai-label">Siomai w/ Rice</label>
+            <div class="siomai-details">
+                <img src="images/siomai_order.png" alt="siomai">
+                <div class="quantity-controls">
+                    <button class="decrease-btn">-</button>
+                    <input type="text" class="quantity-input" value="1">
+                    <button class="increase-btn">+</button>
+                </div>
+            </div>
+            <div class="siomai-actions">
+                <button class="buy-btn">Buy</button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
         
     </div>
 
