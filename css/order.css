@@ -245,3 +245,349 @@ nav img {
     background-color: #4aad58;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+/*Container for Adobo*/
+
+.adobo-container {
+    margin-top: 100px;
+    background-color: #C7e065;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%; /* Expand the width of the container */
+    max-width: 600px; /* Set maximum width if needed */
+}
+
+.adobo-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.adobo-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%; /* Expand the width of the details container */
+    justify-content: space-between; /* Align elements to the start and end of container */
+}
+
+.quantity-controls {
+    font-family: "Vollkorn", serif;
+    display: flex;
+    align-items: center;
+    border-radius: 5px; /* Add border radius to the quantity controls */
+}
+
+.quantity-input {
+    font-family: "Vollkorn", serif;
+    width: 60px; /* Increase the width of the input field */
+    height: 40px; /* Increase the height of the input field */
+    text-align: center;
+    margin: 0 20px; /* Increase the margin around the input field */
+    font-size: 18px; /* Increase the font size of the input field */
+    border: none; /* Remove border from the input field */
+    border-radius: 5px; /* Add border radius to the input field */
+}
+
+.quantity-controls button {
+    font-family: "Vollkorn", serif; 
+    width: 40px; /* Increase the width of the buttons */
+    height: 40px; /* Increase the height of the buttons */
+    font-size: 18px; /* Increase the font size of the buttons */
+    border: none; /* Remove border from the buttons */
+    border-radius: 5px; /* Add border radius to the buttons */
+    background-color: white; /* Set background color to white */
+}
+
+.quantity-controls button:hover {
+    background-color: #4aad58; /* Change background color on hover */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+}
+.adobo-actions {
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    margin-top: 10px; /* Add spacing between label and buttons */
+    cursor: pointer;
+}
+
+.buy-btn,
+.add-to-cart-btn {
+    font-size: medium;
+    padding: 10px 20px;
+    margin-top: 5px; /* Add spacing between buttons */
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-family: "Vollkorn", serif;
+}
+
+.buy-btn:hover,
+.add-to-cart-btn:hover {
+    background-color: #4aad58;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/*Container for Mechado*/
+
+.mechado-container {
+    margin-top: 100px;
+    background-color: #C7e065;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%; /* Expand the width of the container */
+    max-width: 600px; /* Set maximum width if needed */
+}
+
+.mechado-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.mechado-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%; /* Expand the width of the details container */
+    justify-content: space-between; /* Align elements to the start and end of container */
+}
+
+.quantity-controls {
+    font-family: "Vollkorn", serif;
+    display: flex;
+    align-items: center;
+    border-radius: 5px; /* Add border radius to the quantity controls */
+}
+
+.quantity-input {
+    font-family: "Vollkorn", serif;
+    width: 60px; /* Increase the width of the input field */
+    height: 40px; /* Increase the height of the input field */
+    text-align: center;
+    margin: 0 20px; /* Increase the margin around the input field */
+    font-size: 18px; /* Increase the font size of the input field */
+    border: none; /* Remove border from the input field */
+    border-radius: 5px; /* Add border radius to the input field */
+}
+
+.quantity-controls button {
+    font-family: "Vollkorn", serif; 
+    width: 40px; /* Increase the width of the buttons */
+    height: 40px; /* Increase the height of the buttons */
+    font-size: 18px; /* Increase the font size of the buttons */
+    border: none; /* Remove border from the buttons */
+    border-radius: 5px; /* Add border radius to the buttons */
+    background-color: white; /* Set background color to white */
+}
+
+.quantity-controls button:hover {
+    background-color: #4aad58; /* Change background color on hover */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+}
+.mechado-actions {
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    margin-top: 10px; /* Add spacing between label and buttons */
+    cursor: pointer;
+}
+
+.buy-btn,
+.add-to-cart-btn {
+    font-size: medium;
+    padding: 10px 20px;
+    margin-top: 5px; /* Add spacing between buttons */
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-family: "Vollkorn", serif;
+}
+
+.buy-btn:hover,
+.add-to-cart-btn:hover {
+    background-color: #4aad58;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/*Container for Paksiw*/
+
+.paksiw-container {
+    margin-top: 100px;
+    background-color: #C7e065;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%; /* Expand the width of the container */
+    max-width: 600px; /* Set maximum width if needed */
+}
+
+.paksiw-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.paksiw-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%; /* Expand the width of the details container */
+    justify-content: space-between; /* Align elements to the start and end of container */
+}
+
+.quantity-controls {
+    font-family: "Vollkorn", serif;
+    display: flex;
+    align-items: center;
+    border-radius: 5px; /* Add border radius to the quantity controls */
+}
+
+.quantity-input {
+    font-family: "Vollkorn", serif;
+    width: 60px; /* Increase the width of the input field */
+    height: 40px; /* Increase the height of the input field */
+    text-align: center;
+    margin: 0 20px; /* Increase the margin around the input field */
+    font-size: 18px; /* Increase the font size of the input field */
+    border: none; /* Remove border from the input field */
+    border-radius: 5px; /* Add border radius to the input field */
+}
+
+.quantity-controls button {
+    font-family: "Vollkorn", serif; 
+    width: 40px; /* Increase the width of the buttons */
+    height: 40px; /* Increase the height of the buttons */
+    font-size: 18px; /* Increase the font size of the buttons */
+    border: none; /* Remove border from the buttons */
+    border-radius: 5px; /* Add border radius to the buttons */
+    background-color: white; /* Set background color to white */
+}
+
+.quantity-controls button:hover {
+    background-color: #4aad58; /* Change background color on hover */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+}
+.paksiw-actions {
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    margin-top: 10px; /* Add spacing between label and buttons */
+    cursor: pointer;
+}
+
+.buy-btn,
+.add-to-cart-btn {
+    font-size: medium;
+    padding: 10px 20px;
+    margin-top: 5px; /* Add spacing between buttons */
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-family: "Vollkorn", serif;
+}
+
+.buy-btn:hover,
+.add-to-cart-btn:hover {
+    background-color: #4aad58;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/*Container for Pakbet*/
+
+.pakbet-container {
+    margin-top: 100px;
+    background-color: #C7e065;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%; /* Expand the width of the container */
+    max-width: 600px; /* Set maximum width if needed */
+}
+
+.pakbet-label {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pakbet-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%; /* Expand the width of the details container */
+    justify-content: space-between; /* Align elements to the start and end of container */
+}
+
+.pakbet-controls {
+    font-family: "Vollkorn", serif;
+    display: flex;
+    align-items: center;
+    border-radius: 5px; /* Add border radius to the quantity controls */
+}
+
+.quantity-input {
+    font-family: "Vollkorn", serif;
+    width: 60px; /* Increase the width of the input field */
+    height: 40px; /* Increase the height of the input field */
+    text-align: center;
+    margin: 0 20px; /* Increase the margin around the input field */
+    font-size: 18px; /* Increase the font size of the input field */
+    border: none; /* Remove border from the input field */
+    border-radius: 5px; /* Add border radius to the input field */
+}
+
+.quantity-controls button {
+    font-family: "Vollkorn", serif; 
+    width: 40px; /* Increase the width of the buttons */
+    height: 40px; /* Increase the height of the buttons */
+    font-size: 18px; /* Increase the font size of the buttons */
+    border: none; /* Remove border from the buttons */
+    border-radius: 5px; /* Add border radius to the buttons */
+    background-color: white; /* Set background color to white */
+}
+
+.quantity-controls button:hover {
+    background-color: #4aad58; /* Change background color on hover */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+}
+.pakbet-actions {
+    display: flex;
+    flex-direction: column; /* Arrange buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    margin-top: 10px; /* Add spacing between label and buttons */
+    cursor: pointer;
+}
+
+.buy-btn,
+.add-to-cart-btn {
+    font-size: medium;
+    padding: 10px 20px;
+    margin-top: 5px; /* Add spacing between buttons */
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    font-family: "Vollkorn", serif;
+}
+
+.buy-btn:hover,
+.add-to-cart-btn:hover {
+    background-color: #4aad58;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+

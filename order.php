@@ -36,7 +36,7 @@
 <body>
     <div class="order-container">
         <h2>What's on your mind?</h2>
-        <div class="search-container">
+        <div class="search-container" >
             <div class="order-input-element">
                 <input type="text" id="order" name="order" placeholder="find food you love">
             </div>
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="siomai-container">
+        <div class="siomai-container" containerID="1">
             <label class="siomai-label">Siomai w/ Rice</label>
             <div class="siomai-details">
                 <img src="images/siomai_order.png" alt="siomai">
@@ -63,65 +63,65 @@
             </div>
         </div>
 
-        <div class="siomai-container">
-            <label class="siomai-label">Siomai w/ Rice</label>
-            <div class="siomai-details">
-                <img src="images/siomai_order.png" alt="siomai">
+        <div class="adobo-container"containerID="2">
+            <label class="adobo-label">Adobo w/ Rice</label>
+            <div class="adobo-details">
+                <img src="images/siomai_order.png" alt="adobo">
                 <div class="quantity-controls">
                     <button class="decrease-btn">-</button>
                     <input type="text" class="quantity-input" value="1">
                     <button class="increase-btn">+</button>
                 </div>
             </div>
-            <div class="siomai-actions">
+            <div class="adobo-actions">
                 <button class="buy-btn">Buy</button>
                 <button class="add-to-cart-btn">Add to Cart</button>
             </div>
         </div>
 
-        <div class="siomai-container">
-            <label class="siomai-label">Siomai w/ Rice</label>
-            <div class="siomai-details">
-                <img src="images/siomai_order.png" alt="siomai">
+        <div class="mechado-container" containerID="3">
+            <label class="mechado-label">Mechado w/ Rice</label>
+            <div class="mechado-details">
+                <img src="images/siomai_order.png" alt="mechado">
                 <div class="quantity-controls">
                     <button class="decrease-btn">-</button>
                     <input type="text" class="quantity-input" value="1">
                     <button class="increase-btn">+</button>
                 </div>
             </div>
-            <div class="siomai-actions">
+            <div class="mechado-actions">
                 <button class="buy-btn">Buy</button>
                 <button class="add-to-cart-btn">Add to Cart</button>
             </div>
         </div>
 
-        <div class="siomai-container">
-            <label class="siomai-label">Siomai w/ Rice</label>
-            <div class="siomai-details">
-                <img src="images/siomai_order.png" alt="siomai">
+        <div class="paksiw-container" containerID="4">
+            <label class="paksiw-label">Paksiw w/ Rice</label>
+            <div class="paksiw-details">
+                <img src="images/siomai_order.png" alt="paksiw">
                 <div class="quantity-controls">
                     <button class="decrease-btn">-</button>
                     <input type="text" class="quantity-input" value="1">
                     <button class="increase-btn">+</button>
                 </div>
             </div>
-            <div class="siomai-actions">
+            <div class="paksiw-actions">
                 <button class="buy-btn">Buy</button>
                 <button class="add-to-cart-btn">Add to Cart</button>
             </div>
         </div>
 
-                <div class="siomai-container">
-            <label class="siomai-label">Siomai w/ Rice</label>
-            <div class="siomai-details">
-                <img src="images/siomai_order.png" alt="siomai">
+        <div class="pakbet-container" containerID="5">
+            <label class="pakbet-label">Pakbet w/ Rice</label>
+            <div class="pakbet-details">
+                <img src="images/siomai_order.png" alt="pakbet">
                 <div class="quantity-controls">
                     <button class="decrease-btn">-</button>
                     <input type="text" class="quantity-input" value="1">
                     <button class="increase-btn">+</button>
                 </div>
             </div>
-            <div class="siomai-actions">
+            <div class="pakbet-actions">
                 <button class="buy-btn">Buy</button>
                 <button class="add-to-cart-btn">Add to Cart</button>
             </div>
@@ -134,31 +134,72 @@
 
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const decreaseBtn = document.querySelector('.decrease-btn');
-            const increaseBtn = document.querySelector('.increase-btn');
-            const quantityInput = document.querySelector('.quantity-input');
-            
-            // Function to handle decrease button click
-            decreaseBtn.addEventListener('click', function() {
-                let currentValue = parseInt(quantityInput.value);
+    document.addEventListener("DOMContentLoaded", function() {
+        // Select all decrease buttons and add event listeners
+        const decreaseBtns = document.querySelectorAll('.decrease-btn');
+        decreaseBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                let currentValue = parseInt(btn.nextElementSibling.value);
                 if (currentValue > 1) {
-                    quantityInput.value = currentValue - 1;
+                    btn.nextElementSibling.value = currentValue - 1;
                 }
             });
+        });
 
-            // Function to handle increase button click
-            increaseBtn.addEventListener('click', function() {
-                let currentValue = parseInt(quantityInput.value);
-                quantityInput.value = currentValue + 1;
+        // Select all increase buttons and add event listeners
+        const increaseBtns = document.querySelectorAll('.increase-btn');
+        increaseBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                let currentValue = parseInt(btn.previousElementSibling.value);
+                btn.previousElementSibling.value = currentValue + 1;
             });
+        });
 
-            // Prevent typing in the input field
-            quantityInput.addEventListener('keydown', function(event) {
+        // Prevent typing in the input field
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+        quantityInputs.forEach(function(input) {
+            input.addEventListener('keydown', function(event) {
                 event.preventDefault();
             });
         });
-    </script>
+
+        // Select all buy buttons and add event listeners
+        const buyBtns = document.querySelectorAll('.buy-btn');
+        buyBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                // Get the container ID to identify the food item
+                let containerID = btn.parentElement.parentElement.getAttribute('containerID');
+                // Retrieve the price of the food item from the database
+                fetchPrice(containerID, btn); // Pass btn as a parameter
+            });
+        });
+
+        function fetchPrice(containerID, btn) {
+            // AJAX request to fetch price from the database
+            $.ajax({
+                url: "php/fetch_price.php", // Replace with your PHP file to fetch price
+                type: "POST",
+                data: { containerID: containerID }, // Send container ID to PHP script
+                success: function(response){
+                    // Parse the response as JSON
+                    let data = JSON.parse(response);
+                    // Retrieve price and quantity values
+                    let price = data.price;
+                    let quantity = parseInt(btn.parentElement.parentElement.querySelector('.quantity-input').value);
+                    // Calculate total amount
+                    let totalAmount = price * quantity;
+                    // You can display the total amount or perform further actions here
+                    console.log("Total amount:", totalAmount);
+                },
+                error: function(xhr, status, error){
+                    console.error(error); // Log any errors to the console
+                }
+            });
+        }
+    });
+</script>
+
+
 
 <?php
 // Include database connection configuration
@@ -204,10 +245,7 @@ if ($tableExistsResult->num_rows == 0) {
     } else {
         echo "Error creating table: " . $conn->error;
     }
-} else {
-    echo "Menu order table already exists.";
 }
-
 // Close connection
 $conn->close();
 ?>
