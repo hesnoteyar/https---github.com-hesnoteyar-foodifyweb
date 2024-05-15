@@ -15,9 +15,9 @@ if(isset($_POST['containerID'])) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Prepare and execute SQL query to fetch price based on containerID
+    // Prepare and execute SQL query to fetch price and name based on containerID
     $containerID = $_POST['containerID'];
-    $sql = "SELECT price FROM menu_order WHERE ID = ?";
+    $sql = "SELECT name, price FROM menu_order WHERE ID = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $containerID);
     $stmt->execute();
@@ -25,12 +25,13 @@ if(isset($_POST['containerID'])) {
 
     // Check if any rows are returned
     if ($result->num_rows > 0) {
-        // Fetch price from the result set
+        // Fetch price and name from the result set
         $row = $result->fetch_assoc();
         $price = $row['price'];
+        $foodName = $row['name'];
 
-        // Return price as JSON response
-        echo json_encode(array('price' => $price));
+        // Return price and name as JSON response
+        echo json_encode(array('price' => $price, 'foodName' => $foodName));
     } else {
         // No rows returned, handle error or return default value
         echo json_encode(array('error' => 'Price not found'));

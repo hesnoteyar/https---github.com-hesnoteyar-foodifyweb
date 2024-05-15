@@ -1,0 +1,16 @@
+2024-05-12 17:44:12 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-12 18:17:52 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-12 18:31:23 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-12 18:32:00 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-12 19:09:41 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-12 19:29:57 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-12 19:31:22 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-12 19:55:11 - Received data: Quantity: 4, Food Name: Siomai, Total Amount: 180
+2024-05-13 06:21:22 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-13 06:35:24 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-13 06:52:13 - Received data: Quantity: 2, Food Name: Siomai, Total Amount: 90
+2024-05-13 06:52:22 - Received data: Quantity: 2, Food Name: Siomai, Total Amount: 90
+2024-05-13 08:23:04 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-13 08:23:11 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-13 08:29:34 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-13 08:32:47 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45

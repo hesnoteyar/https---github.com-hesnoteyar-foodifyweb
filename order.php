@@ -133,9 +133,9 @@
 
 
 
-    <script>
+<script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Select all decrease buttons and add event listeners
+        // Quantity controls
         const decreaseBtns = document.querySelectorAll('.decrease-btn');
         decreaseBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -146,7 +146,6 @@
             });
         });
 
-        // Select all increase buttons and add event listeners
         const increaseBtns = document.querySelectorAll('.increase-btn');
         increaseBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -155,7 +154,6 @@
             });
         });
 
-        // Prevent typing in the input field
         const quantityInputs = document.querySelectorAll('.quantity-input');
         quantityInputs.forEach(function(input) {
             input.addEventListener('keydown', function(event) {
@@ -163,13 +161,11 @@
             });
         });
 
-        // Select all buy buttons and add event listeners
-        const buyBtns = document.querySelectorAll('.buy-btn');
+        // Buy and Add to Cart functionality
+        const buyBtns = document.querySelectorAll('.buy-btn, .add-to-cart-btn');
         buyBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
-                // Get the container ID to identify the food item
                 let containerID = btn.parentElement.parentElement.getAttribute('containerID');
-                // Retrieve the price of the food item from the database
                 fetchPrice(containerID, btn); // Pass btn as a parameter
             });
         });
@@ -177,27 +173,77 @@
         function fetchPrice(containerID, btn) {
             // AJAX request to fetch price from the database
             $.ajax({
-                url: "php/fetch_price.php", // Replace with your PHP file to fetch price
+                url: "php/fetch_price.php", // PHP script to fetch price
                 type: "POST",
                 data: { containerID: containerID }, // Send container ID to PHP script
-                success: function(response){
-                    // Parse the response as JSON
+                success: function(response) {
                     let data = JSON.parse(response);
-                    // Retrieve price and quantity values
                     let price = data.price;
+                    let foodName = data.foodName;
                     let quantity = parseInt(btn.parentElement.parentElement.querySelector('.quantity-input').value);
-                    // Calculate total amount
                     let totalAmount = price * quantity;
-                    // You can display the total amount or perform further actions here
-                    console.log("Total amount:", totalAmount);
+                    let action = btn.classList.contains('buy-btn') ? 'buy' : 'addToCart';
+                    if (action === 'buy') {
+                        generateReceipt(quantity, foodName, totalAmount);
+                    } else {
+                        addToCart(quantity, foodName, totalAmount);
+                    }
                 },
-                error: function(xhr, status, error){
+                error: function(xhr, status, error) {
                     console.error(error); // Log any errors to the console
+                }
+            });
+        }
+
+        function generateReceipt(quantity, foodName, totalAmount) {
+            // Log data to console
+            console.log("Data to be sent:", { quantity: quantity, foodName: foodName, totalAmount: totalAmount });
+
+            // AJAX request to generate receipt
+            $.ajax({
+                url: "generate_receipt.php",
+                type: "POST",
+                data: { quantity: quantity, foodName: foodName, totalAmount: totalAmount },
+                success: function(response) {
+                    // Parse the response JSON
+                    let data = JSON.parse(response);
+                    let price = data.price; // Retrieve the price from the response
+                    // Set session variables
+                    sessionStorage.setItem('order_name', foodName);
+                    sessionStorage.setItem('order_price', price);
+                    sessionStorage.setItem('order_quantity', quantity);
+                    // Redirect to receipt page
+                    window.location.href = "receipt.php";
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error:", status, error); // Log AJAX errors
+                    alert("Error: Data not received."); // Show an alert for debugging
+                }
+            });
+        }
+
+        function addToCart(quantity, foodName, totalAmount) {
+            // Display confirmation message
+            alert("Data to be sent to cart: Quantity: " + quantity + ", Food Name: " + foodName + ", Total Amount: " + totalAmount);
+
+            // AJAX request to add item to cart
+            $.ajax({
+                url: "php/add_to_cart.php", // PHP script to add item to cart
+                type: "POST",
+                data: { quantity: quantity, foodName: foodName, totalAmount: totalAmount },
+                success: function(response) {
+                    // Redirect to cart page or display success message
+                    alert("Item added to cart successfully: " + response);
+                },
+                error: function(xhr, status, error) {
+                    console.error("AJAX Error:", status, error); // Log AJAX errors
+                    alert("Error: Failed to add item to cart."); // Show an alert for debugging
                 }
             });
         }
     });
 </script>
+
 
 
 
