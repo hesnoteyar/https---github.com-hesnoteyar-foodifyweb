@@ -3,9 +3,9 @@ session_start(); // Start the session
 
 // Include database connection configuration
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "G8CASESTUDY";
+$username = "u381723726_root";
+$password = ";ww5|9n1Z";
+$database = "u381723726_G8CASESTUDY";
 
 // Check if the session variable for user ID is set
 if(isset($_SESSION['id'])) {
@@ -13,7 +13,7 @@ if(isset($_SESSION['id'])) {
     $userID = $_SESSION['id'];
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $database);
 
     // Check connection
     if ($conn->connect_error) {

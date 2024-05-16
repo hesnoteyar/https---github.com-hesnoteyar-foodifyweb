@@ -196,31 +196,35 @@
         }
 
         function generateReceipt(quantity, foodName, totalAmount) {
-            // Log data to console
-            console.log("Data to be sent:", { quantity: quantity, foodName: foodName, totalAmount: totalAmount });
+    // Log data to console
+    console.log("Data to be sent:", { quantity: quantity, foodName: foodName, totalAmount: totalAmount });
 
-            // AJAX request to generate receipt
-            $.ajax({
-                url: "generate_receipt.php",
-                type: "POST",
-                data: { quantity: quantity, foodName: foodName, totalAmount: totalAmount },
-                success: function(response) {
-                    // Parse the response JSON
-                    let data = JSON.parse(response);
-                    let price = data.price; // Retrieve the price from the response
-                    // Set session variables
-                    sessionStorage.setItem('order_name', foodName);
-                    sessionStorage.setItem('order_price', price);
-                    sessionStorage.setItem('order_quantity', quantity);
-                    // Redirect to receipt page
-                    window.location.href = "receipt.php";
-                },
-                error: function(xhr, status, error) {
-                    console.error("AJAX Error:", status, error); // Log AJAX errors
-                    alert("Error: Data not received."); // Show an alert for debugging
-                }
-            });
+    // Set session variables using sessionStorage
+    sessionStorage.setItem('order_name', foodName);
+    sessionStorage.setItem('order_price', totalAmount);
+    sessionStorage.setItem('order_quantity', quantity);
+
+    console.log("Session variables set:", {
+        order_name: sessionStorage.getItem('order_name'),
+        order_price: sessionStorage.getItem('order_price'),
+        order_quantity: sessionStorage.getItem('order_quantity')
+    });
+
+    // AJAX request to generate receipt
+    $.ajax({
+        url: "generate_receipt.php",
+        type: "POST",
+        data: { quantity: quantity, foodName: foodName, totalAmount: totalAmount },
+        success: function(response) {
+            // Redirect to receipt page
+            window.location.href = "receipt.php";
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX Error:", status, error); // Log AJAX errors
+            alert("Error: Data not received."); // Show an alert for debugging
         }
+    });
+}
 
         function addToCart(quantity, foodName, totalAmount) {
             // Display confirmation message
@@ -250,12 +254,12 @@
 <?php
 // Include database connection configuration
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "G8CASESTUDY";
+$username = "u381723726_root";
+$password = ";ww5|9n1Z";
+$database = "u381723726_G8CASESTUDY";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
 if ($conn->connect_error) {

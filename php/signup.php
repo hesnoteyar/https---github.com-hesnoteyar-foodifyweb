@@ -2,9 +2,9 @@
 
 // Database connection parameters
 $servername = "localhost";
-$username = "root";
-$password = "";
-$database = "G8CASESTUDY";
+$username = "u381723726_root";
+$password = ";ww5|9n1Z";
+$database = "u381723726_G8CASESTUDY";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute the insert query
     if ($conn->query($insert_query) === TRUE) {
-        header("Location: /foodifyweb/verification.html");
+        header("Location: /verification.html");
         exit(); 
     } else {
         echo "Error: " . $insert_query . "<br>" . $conn->error;

@@ -38,10 +38,10 @@ session_start();
 // Check if the user is logged in
 if(isset($_SESSION['id'])) {
     // Connect to MySQL
-    $servername = "localhost"; // Change this to your MySQL server hostname if needed
-    $username = "root"; // Change this to your MySQL username
-    $password = ""; // Change this to your MySQL password
-    $database = "G8CASESTUDY"; // Change this to your MySQL database name
+    $servername = "localhost";
+    $username = "u381723726_root";
+    $password = ";ww5|9n1Z";
+    $database = "u381723726_G8CASESTUDY";
 
     $conn = new mysqli($servername, $username, $password, $database);
 

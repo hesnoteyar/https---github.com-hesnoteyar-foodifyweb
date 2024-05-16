@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-$servername = "localhost"; 
-$username = "root"; 
-$password = ""; 
-$dbname = "G8CASESTUDY"; 
+$servername = "localhost";
+$username = "u381723726_root";
+$password = ";ww5|9n1Z";
+$database = "u381723726_G8CASESTUDY";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $database);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
