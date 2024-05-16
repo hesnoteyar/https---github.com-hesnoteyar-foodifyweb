@@ -27,7 +27,7 @@ if ($result->num_rows > 0) {
     $_SESSION['id'] = $id;
 
     // Redirect to home.php
-    header("Location: /foodifyweb/home.php");
+    header("Location: /home.php");
     exit(); 
 } else {
     echo "Invalid email or password";
