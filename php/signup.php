@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check_email_query = "SELECT * FROM users WHERE email='$email'";
     $check_email_result = $conn->query($check_email_query);
     if ($check_email_result->num_rows > 0) {
-        header("Location: /foodifyweb/emailexist.html");
+        header("Location: /emailexist.html");
         exit();
     }
 
