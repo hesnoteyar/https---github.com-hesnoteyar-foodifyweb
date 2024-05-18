@@ -75,6 +75,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $height = $_POST['height'];
     $weight = $_POST['weight'];
 
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+        exit();
+    }
+
     // Check if email already exists
     $check_email_query = "SELECT * FROM users WHERE email='$email'";
     $check_email_result = $conn->query($check_email_query);
@@ -82,6 +87,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: /emailexist.html");
         exit();
     }
+
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 
     // SQL query to insert data into users table
     $insert_query = "INSERT INTO users (username, email, password, firstname, middlename, lastname, age, house, barangay, region, postal, phone, height, weight) 

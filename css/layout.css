@@ -422,7 +422,8 @@ button:hover {
 
 .signup-form-element input[type="text"],
 .signup-form-element input[type="password"],
-.signup-form-element input[type="number"] {
+.signup-form-element input[type="number"], 
+.signup-form-element input[type="email"] {
     width: 100%;
     padding: 12px;
     border: 1px solid white;
