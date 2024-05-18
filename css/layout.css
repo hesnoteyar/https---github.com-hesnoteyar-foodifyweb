@@ -422,16 +422,16 @@ button:hover {
 
 .signup-form-element input[type="text"],
 .signup-form-element input[type="password"],
-.signup-form-element input[type="number"], 
+.signup-form-element input[type="number"],
 .signup-form-element input[type="email"] {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid white;
-    border-radius: 10px;
-    font-size: 16px;
-    font-family: "Vollkorn", serif;
-    color: #555;
-    box-sizing: border-box;
+    width: 100%!important;
+    padding: 12px!important;
+    border: 1px solid white!important;
+    border-radius: 10px!important;
+    font-size: 16px!important;
+    font-family: "Vollkorn", serif!important;
+    color: #555!important;
+    box-sizing: border-box!important;
 }
 
 .signup-form-element button {
