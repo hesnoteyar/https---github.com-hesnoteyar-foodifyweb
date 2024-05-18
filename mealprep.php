@@ -13,7 +13,7 @@
 <body>
 
 <div class="background">
-    <img src="images\backgroundmain.jpg" alt="bg">
+    <img src="images/backgroundmain.jpg" alt="bg">
 </div>
 
 <header id="home">
@@ -33,9 +33,14 @@
     </nav>
 </header>
 
-<body>
-    <h2>This is mealprep page</h2>
-</body>
+<main>
+    <h2>This is the meal prep page</h2>
+    <div class="search-section">
+        <input type="text" id="recipeSearch" placeholder="Search for a recipe">
+        <button id="searchButton">Search</button>
+    </div>
+    <div id="results"></div>
+</main>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
@@ -56,5 +61,57 @@ $(document).ready(function(){
             }
         });
     });
+
+    // Event listener for the search button
+    $("#searchButton").click(function(){
+        const query = $("#recipeSearch").val();
+        if(query){
+            searchRecipes(query);
+        } else {
+            alert("Please enter a search term.");
+        }
+    });
+
+    // Function to search for recipes using the Edamam API
+    function searchRecipes(query){
+        const appId = '8c2a19f6'; // Replace with your Edamam App ID
+        const appKey = '675dac6ff02b7220e2e5a1abcf9ae49a'; // Replace with your Edamam App Key
+
+        $.ajax({
+            url: `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}`,
+            type: "GET",
+            success: function(response){
+                displayResults(response.hits);
+            },
+            error: function(xhr, status, error){
+                console.error(error); // Log any errors to the console
+            }
+        });
+    }
+
+    // Function to display search results
+    function displayResults(results){
+        const resultsDiv = $("#results");
+        resultsDiv.empty(); // Clear previous results
+
+        if(results.length === 0){
+            resultsDiv.append("<p>No recipes found.</p>");
+            return;
+        }
+
+        results.forEach(result => {
+            const recipe = result.recipe;
+            const recipeDiv = `
+                <div class="recipe">
+                    <h3>${recipe.label}</h3>
+                    <img src="${recipe.image}" alt="${recipe.label}">
+                    <p><a href="${recipe.url}" target="_blank">View Recipe</a></p>
+                </div>
+            `;
+            resultsDiv.append(recipeDiv);
+        });
+    }
 });
 </script>
+</body>
+</html>
