@@ -461,6 +461,8 @@ button:hover {
     width: calc(100% - 10px); /* Subtracting margin */
 }
 
+
+
 /* Media query for smaller screens */
 @media screen and (max-width: 600px) {
     nav img {

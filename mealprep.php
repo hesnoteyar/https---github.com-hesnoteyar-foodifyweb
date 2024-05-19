@@ -63,25 +63,27 @@ $(document).ready(function(){
     });
 
     // Event listener for the search button
+    $(document).ready(function(){
+    // Event listener for the search button
     $("#searchButton").click(function(){
         const query = $("#recipeSearch").val();
         if(query){
-            searchRecipes(query);
+            getNutritionalAnalysis(query);
         } else {
             alert("Please enter a search term.");
         }
     });
 
-    // Function to search for recipes using the Edamam API
-    function searchRecipes(query){
+    // Function to fetch nutritional analysis using the Edamam API
+    function getNutritionalAnalysis(query){
         const appId = '8c2a19f6'; // Replace with your Edamam App ID
         const appKey = '675dac6ff02b7220e2e5a1abcf9ae49a'; // Replace with your Edamam App Key
 
         $.ajax({
-            url: `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}`,
+            url: `https://api.edamam.com/api/nutrition-data?app_id=${appId}&app_key=${appKey}&ingr=${query}`,
             type: "GET",
             success: function(response){
-                displayResults(response.hits);
+                displayNutritionalAnalysis(response);
             },
             error: function(xhr, status, error){
                 console.error(error); // Log any errors to the console
@@ -89,28 +91,25 @@ $(document).ready(function(){
         });
     }
 
-    // Function to display search results
-    function displayResults(results){
+    // Function to display nutritional analysis
+    function displayNutritionalAnalysis(nutritionData){
         const resultsDiv = $("#results");
         resultsDiv.empty(); // Clear previous results
 
-        if(results.length === 0){
-            resultsDiv.append("<p>No recipes found.</p>");
-            return;
-        }
-
-        results.forEach(result => {
-            const recipe = result.recipe;
-            const recipeDiv = `
-                <div class="recipe">
-                    <h3>${recipe.label}</h3>
-                    <img src="${recipe.image}" alt="${recipe.label}">
-                    <p><a href="${recipe.url}" target="_blank">View Recipe</a></p>
-                </div>
-            `;
-            resultsDiv.append(recipeDiv);
-        });
+        const nutritionDiv = `
+            <div class="nutrition">
+                <h3>Nutritional Analysis</h3>
+                <p>Calories: ${nutritionData.calories}</p>
+                <p>Protein: ${nutritionData.totalNutrients.PROCNT.quantity} ${nutritionData.totalNutrients.PROCNT.unit}</p>
+                <p>Fat: ${nutritionData.totalNutrients.FAT.quantity} ${nutritionData.totalNutrients.FAT.unit}</p>
+                <p>Carbohydrates: ${nutritionData.totalNutrients.CHOCDF.quantity} ${nutritionData.totalNutrients.CHOCDF.unit}</p>
+                <img src="${nutritionData.image}" alt="Nutritional Image">
+            </div>
+        `;
+        resultsDiv.append(nutritionDiv);
     }
+});
+
 });
 </script>
 </body>
