@@ -110,6 +110,7 @@ $(document).ready(function(){
             url: "php/fetch_user_data.php", // Adjust the path to your PHP file
             type: "GET",
             success: function(response) {
+                console.log("Success:", response); // Log successful response
                 const userData = JSON.parse(response);
                 if (userData.error) {
                     console.error(userData.error);
