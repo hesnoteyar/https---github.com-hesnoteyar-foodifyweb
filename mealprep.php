@@ -34,7 +34,6 @@
 </header>
 
 <main>
-    <h2>This is the meal prep page</h2>
     <div class="search-section">
         <input type="text" id="recipeSearch" placeholder="Search for a recipe">
         <button id="searchButton">Search</button>
@@ -62,8 +61,6 @@ $(document).ready(function(){
         });
     });
 
-    // Event listener for the search button
-    $(document).ready(function(){
     // Event listener for the search button
     $("#searchButton").click(function(){
         const query = $("#recipeSearch").val();
@@ -97,19 +94,26 @@ $(document).ready(function(){
         resultsDiv.empty(); // Clear previous results
 
         const nutritionDiv = `
-            <div class="nutrition">
-                <h3>Nutritional Analysis</h3>
+            <div class="nutrition-facts">
+                <h3>Nutritional Facts</h3>
                 <p>Calories: ${nutritionData.calories}</p>
-                <p>Protein: ${nutritionData.totalNutrients.PROCNT.quantity} ${nutritionData.totalNutrients.PROCNT.unit}</p>
-                <p>Fat: ${nutritionData.totalNutrients.FAT.quantity} ${nutritionData.totalNutrients.FAT.unit}</p>
-                <p>Carbohydrates: ${nutritionData.totalNutrients.CHOCDF.quantity} ${nutritionData.totalNutrients.CHOCDF.unit}</p>
+                <div class="nutrient">
+                    <span class="nutrient-label">Protein</span>
+                    <span>${nutritionData.totalNutrients.PROCNT ? nutritionData.totalNutrients.PROCNT.quantity + ' ' + nutritionData.totalNutrients.PROCNT.unit : 'N/A'}</span>
+                </div>
+                <div class="nutrient">
+                    <span class="nutrient-label">Fat</span>
+                    <span>${nutritionData.totalNutrients.FAT ? nutritionData.totalNutrients.FAT.quantity + ' ' + nutritionData.totalNutrients.FAT.unit : 'N/A'}</span>
+                </div>
+                <div class="nutrient">
+                    <span class="nutrient-label">Carbohydrates</span>
+                    <span>${nutritionData.totalNutrients.CHOCDF ? nutritionData.totalNutrients.CHOCDF.quantity + ' ' + nutritionData.totalNutrients.CHOCDF.unit : 'N/A'}</span>
+                </div>
                 <img src="${nutritionData.image}" alt="Nutritional Image">
             </div>
         `;
         resultsDiv.append(nutritionDiv);
     }
-});
-
 });
 </script>
 </body>
