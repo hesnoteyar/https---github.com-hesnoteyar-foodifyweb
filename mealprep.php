@@ -128,11 +128,7 @@ $(document).ready(function(){
         resultsDiv.append(nutritionDiv);
     }
 });
-function handleImageError(image) {
-    console.error("Error loading image: " + image.src);
-    image.alt = "Image not available"; // Optional: Set an alternative text
-    image.src = "images/defaultImage.png"; // Optional: Set a default image
-}
+
 </script>
 </body>
 </html>
