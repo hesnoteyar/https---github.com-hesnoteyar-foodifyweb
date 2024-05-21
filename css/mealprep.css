@@ -187,3 +187,21 @@ nav img {
     font-weight: bold;
 }
 
+.suggested-intakes {
+    max-width: 300px;
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.suggested-intakes h3 {
+    font-size: 18px;
+    text-align: center;
+    margin: 0 0 10px;
+    font-family: "Vollkorn", serif;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+}

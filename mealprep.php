@@ -41,7 +41,37 @@
     <div id="results"></div>
 </main>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script 
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+
+
+<?php
+// fetch_user_data.php
+session_start();
+require 'php/db_connection.php'; // Adjust the path to your database connection file
+
+// Assume user is logged in and user_id is stored in session
+$user_id = $_SESSION['id'];
+
+$sql = "SELECT height, weight FROM users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $user_data = $result->fetch_assoc();
+    echo json_encode($user_data);
+} else {
+    echo json_encode(['error' => 'User not found']);
+}
+
+$stmt->close();
+$conn->close();
+?>
+
+
 <script>
 $(document).ready(function(){
     // Click event for the profile link
@@ -70,6 +100,52 @@ $(document).ready(function(){
             alert("Please enter a search term.");
         }
     });
+
+    // Fetch user data and calculate suggested intakes
+    fetchUserDataAndCalculateIntakes();
+
+    // Function to fetch user data and calculate suggested intakes
+    function fetchUserDataAndCalculateIntakes() {
+        $.ajax({
+            url: "php/fetch_user_data.php", // Adjust the path to your PHP file
+            type: "GET",
+            success: function(response) {
+                const userData = JSON.parse(response);
+                if (userData.error) {
+                    console.error(userData.error);
+                } else {
+                    const { height, weight } = userData;
+                    const suggestedIntakes = calculateSuggestedIntakes(height, weight);
+                    displaySuggestedIntakes(suggestedIntakes);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Failed to fetch user data:", error);
+            }
+        });
+    }
+
+    // Function to calculate suggested intakes
+    function calculateSuggestedIntakes(height, weight) {
+        const calories = Math.round(10 * weight + 6.25 * height - 5 * 25 + 5); // Simplified Harris-Benedict equation for a 25-year-old male
+        const protein = Math.round(weight * 1.2); // 1.2 grams of protein per kg of body weight
+        const fat = Math.round(weight * 0.8); // 0.8 grams of fat per kg of body weight
+        return { calories, protein, fat };
+    }
+
+    // Function to display suggested intakes
+    function displaySuggestedIntakes(intakes) {
+        const { calories, protein, fat } = intakes;
+        const intakesDiv = `
+            <div class="suggested-intakes">
+                <h3>Suggested Daily Intakes</h3>
+                <p>Calories: ${calories} kcal</p>
+                <p>Protein: ${protein} grams</p>
+                <p>Fat: ${fat} grams</p>
+            </div>
+        `;
+        $("#results").append(intakesDiv);
+    }
 
     // Function to fetch nutritional analysis using the Edamam API
     function getNutritionalAnalysis(query){
@@ -128,7 +204,8 @@ $(document).ready(function(){
         resultsDiv.append(nutritionDiv);
     }
 });
-
 </script>
+
+
 </body>
 </html>
