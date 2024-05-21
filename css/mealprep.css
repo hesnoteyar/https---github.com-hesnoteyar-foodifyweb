@@ -105,11 +105,16 @@ nav img {
 }
 
 .search-section input[type="text"] {
+    font-family: "Vollkorn", serif;
     width: 300px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+}
+
+.search-section input[type="text"] :focus{
+    outline-width: 0px;
 }
 
 .search-section button {
