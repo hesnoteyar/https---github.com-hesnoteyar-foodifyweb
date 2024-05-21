@@ -123,6 +123,7 @@ $(document).ready(function(){
                     <span>${nutritionData.totalNutrients.CA ? nutritionData.totalNutrients.CA.quantity + ' ' + nutritionData.totalNutrients.CA.unit : 'N/A'}</span>
                 </div>
                 <!-- Add more nutrient information here -->
+                <img src="${nutritionData.image}" alt="Nutritional Image">
             </div>
         `;
         resultsDiv.append(nutritionDiv);
