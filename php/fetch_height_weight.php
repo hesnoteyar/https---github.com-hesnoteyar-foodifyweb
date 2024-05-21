@@ -13,6 +13,9 @@ $conn = new mysqli($servername, $username, $password, $database);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+} else {
+    // Debugging: Log successful connection
+    error_log("Connected to database successfully");
 }
 
 // Fetch user ID from GET parameters
