@@ -2,7 +2,14 @@
 session_start();
 require 'php/db_connection.php'; // Make sure this path is correct
 
-// Assume user is logged in and user_id is stored in session
+// Check if user ID is set in the session
+if (!isset($_SESSION['id'])) {
+    // If user ID is not set in the session, return an error or redirect as needed
+    echo json_encode(['error' => 'User ID not found']);
+    exit; // Stop further execution
+}
+
+// User ID is set, proceed to fetch user data
 $user_id = $_SESSION['id'];
 
 $sql = "SELECT height, weight FROM users WHERE id = ?";

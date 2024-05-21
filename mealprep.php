@@ -79,7 +79,7 @@ $(document).ready(function(){
         e.preventDefault(); // Prevent default link behavior
         // AJAX request to fetch user ID
         $.ajax({
-            url: "php/fetch_user_id.php", // Replace with your PHP file to fetch user ID
+            url: "php/fetch_user_data.php", // Replace with your PHP file to fetch user ID
             type: "GET",
             success: function(response){
                 // Redirect to profile.php with the user ID as URL parameter
