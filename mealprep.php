@@ -46,32 +46,6 @@
 </script>
 
 
-<?php
-// fetch_user_data.php
-session_start();
-require 'php/db_connection.php'; // Adjust the path to your database connection file
-
-// Assume user is logged in and user_id is stored in session
-$user_id = $_SESSION['id'];
-
-$sql = "SELECT height, weight FROM users WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    $user_data = $result->fetch_assoc();
-    echo json_encode($user_data);
-} else {
-    echo json_encode(['error' => 'User not found']);
-}
-
-$stmt->close();
-$conn->close();
-?>
-
-
 <script>
 $(document).ready(function(){
     // Click event for the profile link
@@ -101,52 +75,6 @@ $(document).ready(function(){
         }
     });
 
-    // Function to fetch user data and calculate suggested intakes
-    fetchUserDataAndCalculateIntakes();
-
-    // Function to fetch user data and calculate suggested intakes
-    function fetchUserDataAndCalculateIntakes() {
-        $.ajax({
-            url: "php/fetch_user_data.php", // Adjust the path to your PHP file
-            type: "GET",
-            success: function(response) {
-                console.log("Success:", response); // Log successful response
-                const userData = JSON.parse(response);
-                if (userData.error) {
-                    console.error(userData.error);
-                } else {
-                    const { height, weight } = userData;
-                    const suggestedIntakes = calculateSuggestedIntakes(height, weight);
-                    displaySuggestedIntakes(suggestedIntakes);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("Failed to fetch user data:", error);
-            }
-        });
-    }
-
-    // Function to calculate suggested intakes
-    function calculateSuggestedIntakes(height, weight) {
-        const calories = Math.round(10 * weight + 6.25 * height - 5 * 25 + 5); // Simplified Harris-Benedict equation for a 25-year-old male
-        const protein = Math.round(weight * 1.2); // 1.2 grams of protein per kg of body weight
-        const fat = Math.round(weight * 0.8); // 0.8 grams of fat per kg of body weight
-        return { calories, protein, fat };
-    }
-
-    // Function to display suggested intakes
-    function displaySuggestedIntakes(intakes) {
-        const { calories, protein, fat } = intakes;
-        const intakesDiv = `
-            <div class="suggested-intakes">
-                <h3>Suggested Daily Intakes</h3>
-                <p>Calories: ${calories} kcal</p>
-                <p>Protein: ${protein} grams</p>
-                <p>Fat: ${fat} grams</p>
-            </div>
-        `;
-        $("#results").append(intakesDiv);
-    }
 
     // Function to fetch nutritional analysis using the Edamam API
     function getNutritionalAnalysis(query){
@@ -165,7 +93,6 @@ $(document).ready(function(){
         });
     }
 
-    // Function to display nutritional analysis
 // Function to display nutritional analysis
     function displayNutritionalAnalysis(nutritionData){
         const resultsDiv = $("#results");
@@ -204,6 +131,76 @@ $(document).ready(function(){
         `;
         resultsDiv.append(nutritionDiv);
     }
+});
+
+// Function to fetch user ID from the backend
+function fetchUserId() {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: "php/fetch_user_id.php", // PHP file to fetch user ID
+            type: "GET",
+            success: function(response){
+                resolve(response); // Resolve with user ID
+            },
+            error: function(xhr, status, error){
+                reject(error); // Reject with error message
+            }
+        });
+    });
+}
+
+// Function to fetch height and weight from backend using user ID
+function fetchHeightAndWeight(userId) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: "php/fetch_height_weight.php", // Backend endpoint to fetch height and weight
+            type: "GET",
+            data: { userId: userId },
+            success: function(response){
+                resolve(response); // Resolve with height and weight data
+            },
+            error: function(xhr, status, error){
+                reject(error); // Reject with error message
+            }
+        });
+    });
+}
+
+// Function to calculate and display suggested daily intake
+function displaySuggestedIntake() {
+    fetchUserId()
+        .then(userId => {
+            fetchHeightAndWeight(userId)
+                .then(data => {
+                    const { height, weight } = data; // Assuming data is returned as an object with height and weight properties
+                    if (height && weight) {
+                        const { calories, protein, fat } = calculateSuggestedIntake(height, weight);
+                        const resultsDiv = $("#results"); // Assuming this is where you want to display the results
+                        const intakeDiv = `
+                            <div class="suggested-intake">
+                                <h3>Suggested Daily Intake</h3>
+                                <p>Calories: ${calories}</p>
+                                <p>Protein: ${protein} grams</p>
+                                <p>Fat: ${fat} grams</p>
+                            </div>
+                        `;
+                        resultsDiv.append(intakeDiv); // Append the suggested intake information to the results section
+                    } else {
+                        console.error('Height and weight not found for user ID:', userId); // Log an error if height or weight is not found
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching height and weight:', error); // Log an error if there's an issue fetching height and weight
+                });
+        })
+        .catch(error => {
+            console.error('Error fetching user ID:', error); // Log an error if there's an issue fetching user ID
+        });
+}
+
+// Call the displaySuggestedIntake function when the document is ready
+$(document).ready(function() {
+    displaySuggestedIntake();
 });
 </script>
 
