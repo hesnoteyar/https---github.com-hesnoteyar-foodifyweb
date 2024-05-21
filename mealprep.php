@@ -89,6 +89,7 @@ $(document).ready(function(){
     }
 
     // Function to display nutritional analysis
+// Function to display nutritional analysis
     function displayNutritionalAnalysis(nutritionData){
         const resultsDiv = $("#results");
         resultsDiv.empty(); // Clear previous results
@@ -109,6 +110,19 @@ $(document).ready(function(){
                     <span class="nutrient-label">Carbohydrates</span>
                     <span>${nutritionData.totalNutrients.CHOCDF ? nutritionData.totalNutrients.CHOCDF.quantity + ' ' + nutritionData.totalNutrients.CHOCDF.unit : 'N/A'}</span>
                 </div>
+                <div class="nutrient">
+                    <span class="nutrient-label">Fiber</span>
+                    <span>${nutritionData.totalNutrients.FIBTG ? nutritionData.totalNutrients.FIBTG.quantity + ' ' + nutritionData.totalNutrients.FIBTG.unit : 'N/A'}</span>
+                </div>
+                <div class="nutrient">
+                    <span class="nutrient-label">Sugars</span>
+                    <span>${nutritionData.totalNutrients.SUGAR ? nutritionData.totalNutrients.SUGAR.quantity + ' ' + nutritionData.totalNutrients.SUGAR.unit : 'N/A'}</span>
+                </div>
+                <div class="nutrient">
+                    <span class="nutrient-label">Calcium</span>
+                    <span>${nutritionData.totalNutrients.CA ? nutritionData.totalNutrients.CA.quantity + ' ' + nutritionData.totalNutrients.CA.unit : 'N/A'}</span>
+                </div>
+                <!-- Add more nutrient information here -->
                 <img src="${nutritionData.image}" alt="Nutritional Image">
             </div>
         `;

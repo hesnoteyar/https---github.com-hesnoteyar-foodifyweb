@@ -123,6 +123,7 @@ nav img {
 }
 
 .search-section button:hover {
+    font-family: "Vollkorn", serif;
     background-color: #218838;
 }
 
