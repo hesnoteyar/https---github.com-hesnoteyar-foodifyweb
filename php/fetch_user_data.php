@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'php/db_connection.php'; // Make sure this path is correct
 
 // Check if user ID is set in the session
 if (!isset($_SESSION['id'])) {
