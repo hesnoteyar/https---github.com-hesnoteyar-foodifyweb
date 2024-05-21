@@ -101,7 +101,7 @@ $(document).ready(function(){
         }
     });
 
-    // Fetch user data and calculate suggested intakes
+    // Function to fetch user data and calculate suggested intakes
     fetchUserDataAndCalculateIntakes();
 
     // Function to fetch user data and calculate suggested intakes
