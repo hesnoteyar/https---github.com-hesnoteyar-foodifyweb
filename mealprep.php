@@ -150,12 +150,12 @@ function fetchUserId() {
 }
 
 // Function to fetch height and weight from backend using user ID
-function fetchHeightAndWeight(userId) {
+function fetchHeightAndWeight(id) {
     return new Promise((resolve, reject) => {
         $.ajax({
             url: "php/fetch_height_weight.php", // Backend endpoint to fetch height and weight
             type: "GET",
-            data: { userId: userId },
+            data: { id: id },
             success: function(response){
                 resolve(response); // Resolve with height and weight data
             },
@@ -170,7 +170,7 @@ function fetchHeightAndWeight(userId) {
 function displaySuggestedIntake() {
     fetchUserId()
         .then(userId => {
-            fetchHeightAndWeight(userId)
+            fetchHeightAndWeight(id)
                 .then(data => {
                     const { height, weight } = data; // Assuming data is returned as an object with height and weight properties
                     if (height && weight) {
@@ -186,7 +186,7 @@ function displaySuggestedIntake() {
                         `;
                         resultsDiv.append(intakeDiv); // Append the suggested intake information to the results section
                     } else {
-                        console.error('Height and weight not found for user ID:', userId); // Log an error if height or weight is not found
+                        console.error('Height and weight not found for user ID:', id); // Log an error if height or weight is not found
                     }
                 })
                 .catch(error => {

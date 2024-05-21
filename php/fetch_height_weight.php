@@ -19,8 +19,8 @@ if ($conn->connect_error) {
 }
 
 // Fetch user ID from GET parameters
-if(isset($_GET['userId'])) {
-    $userId = $_GET['userId'];
+if(isset($_GET['id'])) {
+    $userId = $_GET['id'];
 
     // Prepare SQL statement to fetch height and weight based on user ID
     $sql = "SELECT height, weight FROM users WHERE id = ?";
