@@ -1,7 +1,7 @@
 <?php
-// Assuming this file is named fetch_height_weight.php
+session_start();
 
-// Connect to your database
+// Database connection
 $servername = "localhost";
 $username = "u381723726_root";
 $password = ";ww5|9n1Z";
@@ -13,41 +13,28 @@ $conn = new mysqli($servername, $username, $password, $database);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} else {
-    // Debugging: Log successful connection
-    error_log("Connected to database successfully");
 }
 
-// Fetch user ID from GET parameters
-if(isset($_GET['id'])) {
-    $userId = $_GET['id'];
+if(isset($_SESSION['id'])) {
+    $userId = $_SESSION['id'];
 
-    // Prepare SQL statement to fetch height and weight based on user ID
-    $sql = "SELECT height, weight FROM users WHERE id = $userId";
+    // Query to fetch height and weight from the database
+    $sql = "SELECT height, weight FROM users WHERE id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $userId);
+    $stmt->bind_param("i", $userId);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Check if data was retrieved
-    if ($result->num_rows > 0) {
-        // Fetch height and weight from the result set
+    if($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $height = $row['height'];
-        $weight = $row['weight'];
-
-        // Return height and weight as JSON
-        echo json_encode(array("height" => $height, "weight" => $weight));
+        echo json_encode($row); // Return height and weight as JSON
     } else {
-        // If no data found for the user ID, return an error message
-        echo "Error: Height and weight data not found for user ID " . $userId;
+        echo json_encode(array('error' => 'Height or weight not found for user'));
     }
-
-    // Close prepared statement and database connection
-    $stmt->close();
-    $conn->close();
 } else {
-    // If user ID parameter is not provided, return an error message
-    echo "Error: User ID parameter missing";
+    echo json_encode(array('error' => 'User ID not found in session'));
 }
+
+// Close connection
+$conn->close();
 ?>

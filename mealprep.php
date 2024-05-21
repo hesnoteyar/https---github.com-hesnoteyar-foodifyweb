@@ -133,75 +133,90 @@ $(document).ready(function(){
     }
 });
 
-// Function to fetch user ID from the backend
-function fetchUserId() {
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            url: "php/fetch_user_id.php", // PHP file to fetch user ID
-            type: "GET",
-            success: function(response){
-                resolve(response); // Resolve with user ID
-            },
-            error: function(xhr, status, error){
-                reject(error); // Reject with error message
+$(document).ready(function(){
+    // Fetch height and weight from server
+    $.ajax({
+        url: "php/fetch_height_weight.php",
+        type: "GET",
+        dataType: "json",
+        success: function(response){
+            if(response.error){
+                console.error(response.error);
+                return;
             }
-        });
+            const height = response.height; // Height in cm
+            const weight = response.weight; // Weight in kg
+
+            // Calculate required intake (simplified version)
+            const calorieIntake = calculateCalorieIntake(weight, height); // Replace with actual calculation
+            const proteinIntake = calculateProteinIntake(weight); // Replace with actual calculation
+            const fatIntake = calculateFatIntake(weight); // Replace with actual calculation
+
+            // Display the calculated intake
+            displayIntake(calorieIntake, proteinIntake, fatIntake);
+        },
+        error: function(xhr, status, error){
+            console.error(error); // Log any errors to the console
+        }
     });
-}
 
-// Function to fetch height and weight from backend using user ID
-function fetchHeightAndWeight(userId) {
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            url: "php/fetch_height_weight.php", // Backend endpoint to fetch height and weight
-            type: "GET",
-            data: { userId: userId },
-            success: function(response){
-                resolve(response); // Resolve with height and weight data
-            },
-            error: function(xhr, status, error){
-                reject(error); // Reject with error message
-            }
-        });
-    });
-}
+    // Function to calculate required calorie intake (simplified version)
+    function calculateCalorieIntake(weight, height){
+        // Example formula (replace with actual calculation)
+        return 30 * weight + 6.25 * height - 5 * 25; // Example formula (replace with actual calculation)
+    }
 
-// Function to calculate and display suggested daily intake
-function displaySuggestedIntake() {
-    fetchUserId()
-        .then(userId => {
-            fetchHeightAndWeight(userId)
-                .then(data => {
-                    const { height, weight } = data; // Assuming data is returned as an object with height and weight properties
-                    if (height && weight) {
-                        const { calories, protein, fat } = calculateSuggestedIntake(height, weight);
-                        const resultsDiv = $("#results"); // Assuming this is where you want to display the results
-                        const intakeDiv = `
-                            <div class="suggested-intake">
-                                <h3>Suggested Daily Intake</h3>
-                                <p>Calories: ${calories}</p>
-                                <p>Protein: ${protein} grams</p>
-                                <p>Fat: ${fat} grams</p>
-                            </div>
-                        `;
-                        resultsDiv.append(intakeDiv); // Append the suggested intake information to the results section
-                    } else {
-                        console.error('Height and weight not found for user ID:', userId); // Log an error if height or weight is not found
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching height and weight:', error); // Log an error if there's an issue fetching height and weight
-                });
-        })
-        .catch(error => {
-            console.error('Error fetching user ID:', error); // Log an error if there's an issue fetching user ID
-        });
-}
+    // Function to calculate required protein intake (simplified version)
+    function calculateProteinIntake(weight){
+        // Example formula (replace with actual calculation)
+        return 0.8 * weight; // Example formula (replace with actual calculation)
+    }
 
-// Call the displaySuggestedIntake function when the document is ready
-$(document).ready(function() {
-    displaySuggestedIntake();
+    // Function to calculate required fat intake (simplified version)
+    function calculateFatIntake(weight){
+        // Example formula (replace with actual calculation)
+        return 0.3 * weight; // Example formula (replace with actual calculation)
+    }
+
+    // Function to display calculated intake
+    // Function to display calculated intake
+    function displayIntake(height, weight, calorieIntake, proteinIntake, fatIntake){
+        const resultsDiv = $("#results");
+        const intakeDiv = `
+            <div class="intake-facts">
+                <h3>Required Daily Intake</h3>
+                <table>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Height</td>
+                        <td>${height ? height + ' cm' : 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>${weight ? weight + ' kg' : 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <td>Calories</td>
+                        <td>${calorieIntake ? calorieIntake.toFixed(2) : 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <td>Protein</td>
+                        <td>${proteinIntake ? proteinIntake.toFixed(2) + ' grams' : 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <td>Fat</td>
+                        <td>${fatIntake ? fatIntake.toFixed(2) + ' grams' : 'N/A'}</td>
+                    </tr>
+                </table>
+            </div>
+        `;
+        resultsDiv.append(intakeDiv);
+    }
 });
+
 </script>
 
 
