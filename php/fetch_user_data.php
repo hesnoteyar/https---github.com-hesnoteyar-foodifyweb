@@ -8,7 +8,7 @@ if(!isset($_SESSION['id'])) {
 }
 
 // Continue with fetching user data if user ID is set
-require __DIR__ . '/php/db_connection.php'; // Ensure the correct path
+require __DIR__ . 'php/db_connection.php'; // Ensure the correct path
 
 // Assume user is logged in and user_id is stored in session
 $user_id = $_SESSION['id'];
