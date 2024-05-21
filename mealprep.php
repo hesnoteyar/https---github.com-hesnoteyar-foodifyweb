@@ -107,7 +107,7 @@ $(document).ready(function(){
     // Function to fetch user data and calculate suggested intakes
     function fetchUserDataAndCalculateIntakes() {
         $.ajax({
-            url: "php/fetch_user_data.php", // Adjust the path to your PHP file
+            url: "/php/fetch_user_data.php", // Adjust the path to your PHP file
             type: "GET",
             success: function(response) {
                 console.log("Success:", response); // Log successful response
