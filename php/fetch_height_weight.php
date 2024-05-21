@@ -23,7 +23,7 @@ if(isset($_GET['id'])) {
     $userId = $_GET['id'];
 
     // Prepare SQL statement to fetch height and weight based on user ID
-    $sql = "SELECT height, weight FROM user_data WHERE id = ?";
+    $sql = "SELECT height, weight FROM user WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $userId);
     $stmt->execute();
