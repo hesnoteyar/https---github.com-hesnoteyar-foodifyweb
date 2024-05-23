@@ -74,8 +74,8 @@ $(document).ready(function(){
 
     // Function to fetch nutritional analysis using the Edamam API
     function getNutritionalAnalysis(query){
-        const appId = '8c2a19f6'; // Replace with your Edamam App ID
-        const appKey = '675dac6ff02b7220e2e5a1abcf9ae49a'; // Replace with your Edamam App Key
+        const appId = '8c2a19f6'; 
+        const appKey = '675dac6ff02b7220e2e5a1abcf9ae49a'; 
 
         $.ajax({
             url: `https://api.edamam.com/api/nutrition-data?app_id=${appId}&app_key=${appKey}&ingr=${query}`,
@@ -156,19 +156,16 @@ $(document).ready(function(){
 
     // Function to calculate required calorie intake (simplified version)
     function calculateCalorieIntake(weight, height){
-        // Example formula (replace with actual calculation)
         return 30 * weight + 6.25 * height - 5 * 25; // Example formula (replace with actual calculation)
     }
 
     // Function to calculate required protein intake (simplified version)
     function calculateProteinIntake(weight){
-        // Example formula (replace with actual calculation)
         return 0.8 * weight; // Example formula (replace with actual calculation)
     }
 
     // Function to calculate required fat intake (simplified version)
     function calculateFatIntake(weight){
-        // Example formula (replace with actual calculation)
         return 0.3 * weight; // Example formula (replace with actual calculation)
     }
 
