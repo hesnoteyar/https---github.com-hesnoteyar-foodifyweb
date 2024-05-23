@@ -38,14 +38,11 @@
         <input type="text" id="recipeSearch" placeholder="Search for a recipe">
         <button id="searchButton">Search</button>
     </div>
+    <div id="intake"></div>
     <div id="results"></div>
 </main>
 
-<script 
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-</script>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
     // Click event for the profile link
@@ -75,7 +72,6 @@ $(document).ready(function(){
         }
     });
 
-
     // Function to fetch nutritional analysis using the Edamam API
     function getNutritionalAnalysis(query){
         const appId = '8c2a19f6'; // Replace with your Edamam App ID
@@ -93,7 +89,7 @@ $(document).ready(function(){
         });
     }
 
-// Function to display nutritional analysis
+    // Function to display nutritional analysis
     function displayNutritionalAnalysis(nutritionData){
         const resultsDiv = $("#results");
         resultsDiv.empty(); // Clear previous results
@@ -131,9 +127,7 @@ $(document).ready(function(){
         `;
         resultsDiv.append(nutritionDiv);
     }
-});
 
-$(document).ready(function(){
     // Fetch height and weight from server
     $.ajax({
         url: "php/fetch_height_weight.php",
@@ -153,7 +147,7 @@ $(document).ready(function(){
             const fatIntake = calculateFatIntake(weight); // Replace with actual calculation
 
             // Display the calculated intake
-            displayIntake(calorieIntake, proteinIntake, fatIntake);
+            displayIntake(height, weight, calorieIntake, proteinIntake, fatIntake);
         },
         error: function(xhr, status, error){
             console.error(error); // Log any errors to the console
@@ -179,10 +173,9 @@ $(document).ready(function(){
     }
 
     // Function to display calculated intake
-    // Function to display calculated intake
     function displayIntake(height, weight, calorieIntake, proteinIntake, fatIntake){
-        const resultsDiv = $("#results");
-        const intakeDiv = `
+        const intakeDiv = $("#intake");
+        const intakeContent = `
             <div class="intake-facts">
                 <h3>Required Daily Intake</h3>
                 <table>
@@ -213,12 +206,9 @@ $(document).ready(function(){
                 </table>
             </div>
         `;
-        resultsDiv.append(intakeDiv);
+        intakeDiv.html(intakeContent);
     }
 });
-
 </script>
-
-
 </body>
 </html>
