@@ -27,7 +27,7 @@
                 <a href="history.php">History</a>
                 <a href="order.php">Order</a>
                 <a href="#">Meal Prep</a>
-                <a href="#">Logout</a>
+                <a href="#" id="logoutLink">Logout</a> <!-- Logout link with ID for JavaScript -->
             </div>
         </ul>
     </nav>
@@ -206,6 +206,26 @@ $(document).ready(function(){
         intakeDiv.html(intakeContent);
     }
 });
+
+$(document).ready(function(){
+    $("#logoutLink").click(function(e){
+        e.preventDefault(); // Prevent default link behavior
+        
+        // AJAX request to logout
+        $.ajax({
+            url: "php/logout.php", // Replace with your PHP file to handle logout
+            type: "POST",
+            success: function(response){
+                // Redirect to the login page or homepage
+                window.location.href = "index.html"; // Replace with your login page or homepage
+            },
+            error: function(xhr, status, error){
+                console.error("Logout failed:", error); // Log any errors to the console
+            }
+        });
+    });
+});
+
 </script>
 </body>
 </html>
