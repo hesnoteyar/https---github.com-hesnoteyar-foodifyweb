@@ -315,35 +315,35 @@
 		document.getElementById('togglePassword2').addEventListener('change', (event) => togglePasswordVisibility(event, 'password2'));
 
 
-		const auth = firebase.auth();
+				const auth = firebase.auth();
 
-// Function to handle signup and send verification email
-function handleSignUp() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password1').value;
+		// Function to handle signup and send verification email
+		function handleSignUp() {
+			const email = document.getElementById('email').value;
+			const password = document.getElementById('password1').value;
 
-    // Create user with email and password
-    auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Send email verification
-            userCredential.user.sendEmailVerification()
-                .then(() => {
-                    // Email sent successfully
-                    alert('Verification email sent. Please check your inbox.');
-                })
-                .catch((error) => {
-                    // Handle errors
-                    console.error('Error sending verification email:', error);
-                });
-        })
-        .catch((error) => {
-            // Handle errors
-            console.error('Error creating user:', error);
-        });
-}
+			// Create user with email and password
+			auth.createUserWithEmailAndPassword(email, password)
+				.then((userCredential) => {
+					// Send email verification
+					userCredential.user.sendEmailVerification()
+						.then(() => {
+							// Email sent successfully
+							alert('Verification email sent. Please check your inbox.');
+						})
+						.catch((error) => {
+							// Handle errors
+							console.error('Error sending verification email:', error);
+						});
+				})
+				.catch((error) => {
+					// Handle errors
+					console.error('Error creating user:', error);
+				});
+		}
 
-// Add event listener to signup button
-document.getElementById('signupButton').addEventListener('click', handleSignUp);
+		// Add event listener to signup button
+		document.getElementById('signupButton').addEventListener('click', handleSignUp);
 
 	</script>
 		
