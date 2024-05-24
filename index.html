@@ -8,7 +8,35 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-	
+	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+	<!-- Initialize Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase.js"></script>
+
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-analytics.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+	  
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+		  apiKey: "AIzaSyAzdMp67n_AwFOj4N5AjjmVyRlvEv_whKo",
+		  authDomain: "foodifyweb.firebaseapp.com",
+		  projectId: "foodifyweb",
+		  storageBucket: "foodifyweb.appspot.com",
+		  messagingSenderId: "138349532647",
+		  appId: "1:138349532647:web:22b467fd9c41adf01c1942",
+		  measurementId: "G-0WEGSRY38X"
+		};
+	  
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+	  </script>
+
 </head>
 
 
@@ -217,7 +245,7 @@
 	
 	
 				<div class="signup-form-element">
-					<button>Sign up</button>
+					<button id="signupButton">Sign up</button>
 				</div>
 			</form>
 			
@@ -285,6 +313,38 @@
 		document.getElementById('signupForm').addEventListener('submit', validateForm);
 		document.getElementById('togglePassword1').addEventListener('change', (event) => togglePasswordVisibility(event, 'password1'));
 		document.getElementById('togglePassword2').addEventListener('change', (event) => togglePasswordVisibility(event, 'password2'));
+
+
+		const auth = firebase.auth();
+
+// Function to handle signup and send verification email
+function handleSignUp() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password1').value;
+
+    // Create user with email and password
+    auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Send email verification
+            userCredential.user.sendEmailVerification()
+                .then(() => {
+                    // Email sent successfully
+                    alert('Verification email sent. Please check your inbox.');
+                })
+                .catch((error) => {
+                    // Handle errors
+                    console.error('Error sending verification email:', error);
+                });
+        })
+        .catch((error) => {
+            // Handle errors
+            console.error('Error creating user:', error);
+        });
+}
+
+// Add event listener to signup button
+document.getElementById('signupButton').addEventListener('click', handleSignUp);
+
 	</script>
 		
 		
