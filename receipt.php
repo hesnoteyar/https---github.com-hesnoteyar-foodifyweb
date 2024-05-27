@@ -28,11 +28,10 @@ if(isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 
-<body>
-
     <div class="background">
         <img src="images\backgroundmain.jpg" alt="bg">
     </div>
+<body>
 
     <div class="receipt-container">
         <?php if (isset($error) && $error): ?>
