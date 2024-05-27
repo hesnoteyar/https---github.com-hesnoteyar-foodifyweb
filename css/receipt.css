@@ -1,3 +1,16 @@
+body {
+   background-image: url("images/backgroundmain.jpg");
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.vollkorn {
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400px;
+    font-style: normal;
+}
+
 .background {
     position: fixed;
     top: 0;
@@ -19,17 +32,6 @@
     filter: blur(2px);
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-.vollkorn {
-    font-family: "Vollkorn", serif;
-    font-optical-sizing: auto;
-    font-weight: 400px;
-    font-style: normal;
-}
 
 .receipt-container {
     background-color: white;
