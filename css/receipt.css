@@ -44,6 +44,8 @@ body {
     width: 300px;
     padding: 20px;
     text-align: center;
+    position: relative; /* Set position to relative */
+    z-index: 1; /* Set z-index to bring it above the background */
 }
 
 h1 {
