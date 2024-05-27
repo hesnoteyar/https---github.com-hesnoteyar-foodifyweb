@@ -30,6 +30,8 @@ if(isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_
     <div class="background">
         <img src="images\backgroundmain.jpg" alt="bg">
     </div>
+
+    
     <div class="receipt-container">
         <?php if (isset($error) && $error): ?>
             <h1>Session data not found</h1>
