@@ -1,4 +1,6 @@
 <?php
+session_start(); // Start the session
+
 // Check if data is set in the POST request
 if(isset($_POST['quantity']) && isset($_POST['foodName']) && isset($_POST['totalAmount'])) {
     // Log received data
@@ -10,15 +12,14 @@ if(isset($_POST['quantity']) && isset($_POST['foodName']) && isset($_POST['total
     $foodName = $_POST['foodName'];
     $totalAmount = $_POST['totalAmount'];
 
-    // Generate receipt data
-    $receiptData = array(
-        'price' => $totalAmount, // or calculate the price based on quantity and foodName
-        'foodName' => $foodName,
-        'quantity' => $quantity
-    );
+    // Set session variables
+    $_SESSION['order_name'] = $foodName;
+    $_SESSION['order_price'] = $totalAmount;
+    $_SESSION['order_quantity'] = $quantity;
 
-    // Output JSON data
-    echo json_encode($receiptData);
+    // Redirect to receipt.php
+    header('Location: receipt.php');
+    exit(); // Ensure no further code is executed
 } else {
     // Data not set in the POST request
     echo "Error: Data not received.";

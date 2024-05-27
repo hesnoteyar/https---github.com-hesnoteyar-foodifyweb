@@ -11,7 +11,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
 
-	<script type="module">
+	<script>
 		const firebaseConfig = {
 		  apiKey: "AIzaSyAzdMp67n_AwFOj4N5AjjmVyRlvEv_whKo",
 		  authDomain: "foodifyweb.firebaseapp.com",
@@ -303,7 +303,7 @@
 		document.getElementById('togglePassword2').addEventListener('change', (event) => togglePasswordVisibility(event, 'password2'));
 
 
-				const auth = firebase.auth();
+		const auth = firebase.auth();
 
 		// Function to handle signup and send verification email
 		function handleSignUp() {
