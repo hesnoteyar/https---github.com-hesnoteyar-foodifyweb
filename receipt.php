@@ -23,6 +23,7 @@ if(isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Receipt</title>
     <link rel="stylesheet" href="css/receipt.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="receipt-container">
