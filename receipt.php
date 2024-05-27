@@ -27,11 +27,7 @@ if(isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 <body>
-    <div class="background">
-        <img src="images\backgroundmain.jpg" alt="bg">
-    </div>
 
-    
     <div class="receipt-container">
         <?php if (isset($error) && $error): ?>
             <h1>Session data not found</h1>
