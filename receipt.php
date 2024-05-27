@@ -26,27 +26,14 @@ if(isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-    <div class="background">
-        <img src="images\backgroundmain.jpg" alt="bg">
-    </div>
-    
 </head>
 
 
 <body>
+    <div class="background">
+        <img src="images\backgroundmain.jpg" alt="bg">
+    </div>
 
     
-    <div class="receipt-container">
-        <?php if (isset($error) && $error): ?>
-            <h1>Session data not found</h1>
-        <?php else: ?>
-            <h1>Receipt</h1>
-            <p>Order Name: <?php echo htmlspecialchars($orderName); ?></p>
-            <p>Order Price: <?php echo htmlspecialchars($orderPrice); ?></p>
-            <p>Quantity: <?php echo htmlspecialchars($orderQuantity); ?></p>
-            <p class="total-price">Total Price: <?php echo htmlspecialchars($totalPrice); ?></p>
-        <?php endif; ?>
-    </div>
 </body>
 </html>
