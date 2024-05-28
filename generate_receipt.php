@@ -3,9 +3,6 @@ session_start(); // Start the session
 
 // Check if data is set in the POST request
 if(isset($_POST['quantity']) && isset($_POST['foodName']) && isset($_POST['totalAmount'])) {
-    // Log received data
-    $logMessage = date('Y-m-d H:i:s'). " - Received data: Quantity: ". $_POST['quantity']. ", Food Name: ". $_POST['foodName']. ", Total Amount: ". $_POST['totalAmount']. "\n";
-    file_put_contents('receipt_log.txt', $logMessage, FILE_APPEND);
 
     // Retrieve data
     $quantity = $_POST['quantity'];
