@@ -1,2 +1,5 @@
 2024-05-27 16:42:24 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
 2024-05-28 08:50:26 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-28 09:47:21 - Received data: Quantity: 1, Food Name: Siomai, Total Amount: 45
+2024-05-28 09:49:02 - Received data: Quantity: 2, Food Name: Siomai, Total Amount: 90
+2024-05-28 09:49:16 - Received data: Quantity: 2, Food Name: Siomai, Total Amount: 90

@@ -14,6 +14,7 @@ if(isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_
     // Session data not found
     $orderName = $orderPrice = $orderQuantity = $totalPrice = null;
     $error = true;
+    
 }
 ?>
 <!DOCTYPE html>
