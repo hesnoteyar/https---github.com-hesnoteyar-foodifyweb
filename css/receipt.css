@@ -85,7 +85,6 @@ p {
     padding: 10px 20px;
     font: 16px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .payment-buttons button :hover {
