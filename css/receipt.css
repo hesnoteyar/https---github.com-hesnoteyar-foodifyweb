@@ -69,3 +69,27 @@ p {
     font-size: 20px;
     margin-top: 20px;
 }
+
+.payment-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.payment-buttons button {
+    font-family: "Vollkorn", serif;
+    background-color: white;
+    color: green;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.payment-buttons button :hover {
+    font-family: "Vollkorn", serif;
+    background-color: green;
+    color: white;
+}

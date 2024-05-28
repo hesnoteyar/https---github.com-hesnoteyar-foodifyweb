@@ -43,6 +43,10 @@ if(isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_
             <p>Order Price: <?php echo htmlspecialchars($orderPrice); ?></p>
             <p>Quantity: <?php echo htmlspecialchars($orderQuantity); ?></p>
             <p class="total-price">Total Price: <?php echo htmlspecialchars($totalPrice); ?></p>
+            <div class="payment-buttons">
+                <button>Pay with Cash</button>
+                <button>Pay with Points</button>
+            </div>
         <?php endif; ?>
     </div>
 </body>
