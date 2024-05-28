@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['payment_method']) && i
 
         if ($stmt->execute() === TRUE) {
             echo '<script>alert("Kindly wait for your food to arrive!")</script>';
-            echo '<script>window.location.href = "/foodifyweb/home.php";</script>';
+            echo '<script>window.location.href = "/home.php";</script>';
         } else {
             echo "Error: " . $stmt->error;
         }
