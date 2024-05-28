@@ -9,12 +9,12 @@ if(isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_
     $orderQuantity = $_SESSION['order_quantity'];
 
     // Calculate the total price
-    $totalPrice = $orderPrice * $orderQuantity;
+    $totalPrice = $orderPrice ;
 } else {
     // Session data not found
     $orderName = $orderPrice = $orderQuantity = $totalPrice = null;
     $error = true;
-    
+
 }
 ?>
 <!DOCTYPE html>
