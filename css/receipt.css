@@ -108,6 +108,7 @@ p {
     cursor: pointer;
 }
 
+
 .payment-buttons button:hover {
     font-family: "Vollkorn", serif;
     background-color: #4aad58;
