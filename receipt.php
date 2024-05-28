@@ -43,6 +43,11 @@ if(isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_
             <p>Order Price: <?php echo htmlspecialchars($orderPrice); ?></p>
             <p>Quantity: <?php echo htmlspecialchars($orderQuantity); ?></p>
             <p class="total-price">Total Price: <?php echo htmlspecialchars($totalPrice); ?></p>
+            
+            <div class="delivery-input">
+                <label for="room_number">Deliver to: </label>
+                <input type="number" id="room_number" name="room_number" required>
+            </div>
             <div class="payment-buttons">
                 <button>Pay with Cash</button>
                 <button>Pay with Points</button>

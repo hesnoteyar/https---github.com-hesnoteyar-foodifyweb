@@ -70,6 +70,26 @@ p {
     margin-top: 20px;
 }
 
+.delivery-input {
+    margin-top: 20px;
+    font-family: "Vollkorn", serif;
+    font-size: 18px;
+    color: #565656;
+}
+
+.delivery-input label {
+    margin-right: 10px;
+}
+
+.delivery-input input {
+    width: 70px;
+    padding: 5px;
+    font-size: 16px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    text-align: center;
+}
+
 .payment-buttons {
     display: flex;
     justify-content: space-around;
@@ -77,18 +97,19 @@ p {
 }
 
 .payment-buttons button {
+    font-size: medium;
     font-family: "Vollkorn", serif;
     background-color: white;
-    color: green;
-    border: 2px solid green;
+    color: #4aad58;
+    border: 2px solid #4aad58;
     border-radius: 5px;
     padding: 10px 20px;
     font: 16px;
     cursor: pointer;
 }
 
-.payment-buttons button :hover {
+.payment-buttons button:hover {
     font-family: "Vollkorn", serif;
-    background-color: green;
+    background-color: #4aad58;
     color: white;
 }
