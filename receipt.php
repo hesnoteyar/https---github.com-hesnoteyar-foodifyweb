@@ -15,9 +15,19 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Retrieve the user ID from the session
+$userID = null;
+if(isset($_SESSION['id'])) {
+    $userID = $_SESSION['id'];
+} else {
+    // If user ID is not set in the session, return an error or redirect as needed
+    echo "Error: User ID not found";
+}
+
 // Create table if it doesn't exist
 $sql = "CREATE TABLE IF NOT EXISTS transactions (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT(11) NOT NULL,  -- Add user_id field to store the user ID
     order_name VARCHAR(255) NOT NULL,
     order_price FLOAT NOT NULL,
     order_quantity INT(6) NOT NULL,
@@ -31,51 +41,47 @@ if ($conn->query($sql) !== TRUE) {
     die("Error creating table: " . $conn->error);
 }
 
-// Check if the session variables are set
-if(isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_SESSION['order_quantity'])) {
+// Check if the session variables are set and user ID is retrieved
+if($userID) {
     // Retrieve session variables
-    $orderName = $_SESSION['order_name'];
-    $orderPrice = $_SESSION['order_price'];
-    $orderQuantity = $_SESSION['order_quantity'];
+    $orderName = isset($_SESSION['order_name']) ? $_SESSION['order_name'] : null;
+    $orderPrice = isset($_SESSION['order_price']) ? $_SESSION['order_price'] : null;
+    $orderQuantity = isset($_SESSION['order_quantity']) ? $_SESSION['order_quantity'] : null;
 
     // Calculate the total price
     $totalPrice = $orderPrice;
-} else {
-    // Session data not found
-    $orderName = $orderPrice = $orderQuantity = $totalPrice = null;
-    $error = true;
-}
 
-// Check if the form is submitted and payment method is set
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['payment_method']) && isset($_POST['room_number'])) {
-    // Retrieve session variables
-    if (isset($_SESSION['order_name']) && isset($_SESSION['order_price']) && isset($_SESSION['order_quantity'])) {
-        $orderName = $_SESSION['order_name'];
-        $orderPrice = $_SESSION['order_price'];
-        $orderQuantity = $_SESSION['order_quantity'];
-        $totalPrice = $orderPrice;
-        $roomNumber = intval($_POST['room_number']);
-        $paymentMethod = $_POST['payment_method'];
+    // Check if the form is submitted and payment method is set
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['payment_method']) && isset($_POST['room_number'])) {
+        // Retrieve session variables
+        if ($orderName && $orderPrice && $orderQuantity) {
+            $roomNumber = intval($_POST['room_number']);
+            $paymentMethod = $_POST['payment_method'];
 
-        // Insert data into table
-        $stmt = $conn->prepare("INSERT INTO transactions (order_name, order_price, order_quantity, total_price, room_number, payment_method) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sdidis", $orderName, $orderPrice, $orderQuantity, $totalPrice, $roomNumber, $paymentMethod);
+            // Insert data into table
+            $stmt = $conn->prepare("INSERT INTO transactions (user_id, order_name, order_price, order_quantity, total_price, room_number, payment_method) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("isdiids", $userID, $orderName, $orderPrice, $orderQuantity, $totalPrice, $roomNumber, $paymentMethod);
 
-        if ($stmt->execute() === TRUE) {
-            echo '<script>alert("Kindly wait for your food to arrive!")</script>';
-            echo '<script>window.location.href = "/home.php";</script>';
+            if ($stmt->execute() === TRUE) {
+                echo '<script>alert("Kindly wait for your food to arrive!")</script>';
+                echo '<script>window.location.href = "/home.php";</script>';
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+
+            $stmt->close();
         } else {
-            echo "Error: " . $stmt->error;
+            echo "Session data not found";
         }
-
-        $stmt->close();
-    } else {
-        echo "Session data not found";
     }
+} else {
+    // User ID not set in session
+    echo "Error: User ID not found.";
 }
 
 $conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
