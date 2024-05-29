@@ -1,4 +1,42 @@
-<!DOCTYPE html>
+<?php
+    session_start(); // Start the session
+
+    // Check if user is logged in
+    if (!isset($_SESSION['id'])) {
+        // Redirect to the login page if user is not logged in
+        header("Location: index.html");
+        exit; // Stop further execution
+    }
+
+    // Database connection details
+    $servername = "localhost";
+    $username = "u381723726_root";
+    $password = ";ww5|9n1Z";
+    $dbname = "u381723726_G8CASESTUDY";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Retrieve the user ID from the session
+    $userID = $_SESSION['id'];
+
+    // Query to select transactions for the logged-in user
+    $sql = "SELECT * FROM transactions WHERE user_id = $userID";
+
+    $result = $conn->query($sql);
+
+?>
+
+
+
+
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,7 +72,40 @@
 </header>
 
     <body>
-        
+    <div class="history-container">
+    <h1>Transaction History</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Order Name</th>
+            <th>Order Price</th>
+            <th>Order Quantity</th>
+            <th>Total Price</th>
+            <th>Room Number</th>
+            <th>Payment Method</th>
+            <th>Order Date</th>
+        </tr>
+        <?php
+        if ($result->num_rows > 0) {
+            // Output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["id"] . "</td>";
+                echo "<td>" . $row["order_name"] . "</td>";
+                echo "<td>" . $row["order_price"] . "</td>";
+                echo "<td>" . $row["order_quantity"] . "</td>";
+                echo "<td>" . $row["total_price"] . "</td>";
+                echo "<td>" . $row["room_number"] . "</td>";
+                echo "<td>" . $row["payment_method"] . "</td>";
+                echo "<td>" . $row["reg_date"] . "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='8'>No transactions found</td></tr>";
+        }
+        ?>
+    </table>
+</div>
     </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

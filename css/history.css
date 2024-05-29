@@ -100,3 +100,31 @@ nav img {
 h2 {
     margin-top: 20%;
 }
+
+table {
+    width: 90%; /* Adjust the width of the table */
+    margin: 50px auto; /* Sets top and bottom margin to 50px and centers the table horizontally */
+    border-collapse: collapse;
+    margin-top: 100px;
+    border-radius: 10px; /* Adjust the border-radius value to control the curvature */
+}
+
+th, td {
+    font-family: "Vollkorn", serif;
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4aad58;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
