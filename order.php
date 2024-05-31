@@ -66,7 +66,7 @@
         <div class="adobo-container"containerID="2">
             <label class="adobo-label">Adobo w/ Rice</label>
             <div class="adobo-details">
-                <img src="images/siomai_order.png" alt="adobo">
+                <img src="images/adobo_order.png" alt="adobo">
                 <div class="quantity-controls">
                     <button class="decrease-btn">-</button>
                     <input type="text" class="quantity-input" value="1">
@@ -82,7 +82,7 @@
         <div class="mechado-container" containerID="3">
             <label class="mechado-label">Mechado w/ Rice</label>
             <div class="mechado-details">
-                <img src="images/siomai_order.png" alt="mechado">
+                <img src="images/mechado_order.png" alt="mechado">
                 <div class="quantity-controls">
                     <button class="decrease-btn">-</button>
                     <input type="text" class="quantity-input" value="1">
@@ -98,7 +98,7 @@
         <div class="paksiw-container" containerID="4">
             <label class="paksiw-label">Paksiw w/ Rice</label>
             <div class="paksiw-details">
-                <img src="images/siomai_order.png" alt="paksiw">
+                <img src="images/sinigang_order.png" alt="paksiw">
                 <div class="quantity-controls">
                     <button class="decrease-btn">-</button>
                     <input type="text" class="quantity-input" value="1">
@@ -114,7 +114,7 @@
         <div class="pakbet-container" containerID="5">
             <label class="pakbet-label">Pakbet w/ Rice</label>
             <div class="pakbet-details">
-                <img src="images/siomai_order.png" alt="pakbet">
+                <img src="images/pakbet_order.png" alt="pakbet">
                 <div class="quantity-controls">
                     <button class="decrease-btn">-</button>
                     <input type="text" class="quantity-input" value="1">
