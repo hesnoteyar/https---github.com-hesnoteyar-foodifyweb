@@ -1,10 +1,34 @@
+<?php
+// cart.php
+
+// Database connection details
+$servername = "localhost";
+$username = "u381723726_root";
+$password = ";ww5|9n1Z";
+$dbname = "u381723726_G8CASESTUDY"; // Replace with your actual database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// SQL query to fetch cart items
+$sql = "SELECT food_name, quantity, total_amount FROM cart_items";
+$result = $conn->query($sql);
+
+$overall_total = 0; // Initialize overall total amount
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foodify Web Browser</title>
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/cart.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,9 +56,29 @@
             </div>
         </ul>
     </nav>
-
-
 </header>
+
+    <main>
+        <?php
+        if ($result->num_rows > 0) {
+            echo "<table>";
+            echo "<tr><th>Food Name</th><th>Quantity</th><th>Total Amount</th></tr>";
+            // Output data of each row
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . htmlspecialchars($row["food_name"]) . "</td><td>" . htmlspecialchars($row["quantity"]) . "</td><td>" . htmlspecialchars($row["total_amount"]) . "</td></tr>";
+                $overall_total += $row["total_amount"]; // Add item total amount to overall total
+            }
+            echo "</table>";
+            echo "<p><strong>Overall Total Amount:</strong> ₱" . htmlspecialchars($overall_total) . "</p>"; // Display overall total
+        } else {
+            echo "Your cart is empty.";
+        }
+        ?>
+    </main>
+
+    <footer>
+        <a href="order.php">Proceed to Order</a>
+    </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
