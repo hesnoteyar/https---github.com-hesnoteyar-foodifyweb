@@ -28,6 +28,7 @@
                     <a href="#" id="profileLink">Profile</a>
                     <a href="history.php">History</a>
                     <a href="order.php">Order</a>
+                    <a href="cart.php">Cart</a>
                     <a href="mealprep.php">Meal Prep</a>
                     <a href="#" id="logoutLink">Logout</a> <!-- Updated Logout link with ID for JavaScript -->
                 </div>

@@ -64,6 +64,7 @@
                 <a href="#" id="profileLink">Profile</a> <!-- Profile link with ID for JavaScript -->
                 <a href="">History</a>
                 <a href="order.php">Order</a>
+                <a href="cart.php">Cart</a>
                 <a href="mealprep.php">Meal Prep</a>
                 <a href="#" id="logoutLink">Logout</a> <!-- Logout link with ID for JavaScript -->
             </div>
