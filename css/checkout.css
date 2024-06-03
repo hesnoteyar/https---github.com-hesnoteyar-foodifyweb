@@ -1,3 +1,5 @@
+/* style.css */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -134,31 +136,89 @@ strong {
     font-family: "Vollkorn", serif;
 }
 
-
 footer a:hover {
     background-color: white;
     color: #4aad58;
 }
 
-.button-proceed {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4aad58;
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
+.checkout-container {
+    background-color: white;
+    border: 2px solid #565656;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    margin: auto; /* Centering the container horizontally and vertically */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    color: #565656;
+    border-bottom: 2px solid #565656;
     font-family: "Vollkorn", serif;
-    cursor: pointer;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.button-proceed:hover {
-    background-color: #3a8c47;
+p {
+    color: #565656;
+    font-family: "Vollkorn", serif;
+    margin: 10px 0;
+    font-size: 18px;
 }
 
-#checkoutForm {
+.total-price {
+    font-family: "Vollkorn", serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.checkout-input {
+    margin-top: 20px;
+    font-family: "Vollkorn", serif;
+    font-size: 18px;
+    color: #565656;
+}
+
+.checkout-input label {
+    margin-right: 10px;
+}
+
+.checkout-input input {
+    width: 70px;
+    padding: 5px;
+    font-size: 16px;
+    border: 2px solid gray;
+    border-radius: 5px;
     text-align: center;
 }
 
+.payment-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
 
+.payment-buttons button {
+    font-size: medium;
+    font-family: "Vollkorn", serif;
+    background-color: white;
+    color: #4aad58;
+    border: 2px solid #4aad58;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
+.payment-buttons button:hover {
+    font-family: "Vollkorn", serif;
+    background-color: #4aad58;
+    color: white;
+}
 

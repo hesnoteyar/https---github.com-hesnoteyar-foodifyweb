@@ -1,5 +1,6 @@
 <?php
 // cart.php
+$total_amount = $_POST['overall_total'];
 
 // Database connection details
 $servername = "localhost";
@@ -58,27 +59,30 @@ $overall_total = 0; // Initialize overall total amount
     </nav>
 </header>
 
+
     <main>
-        <?php
-        if ($result->num_rows > 0) {
-            echo "<table>";
-            echo "<tr><th>Food Name</th><th>Quantity</th><th>Total Amount</th></tr>";
-            // Output data of each row
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . htmlspecialchars($row["food_name"]) . "</td><td>" . htmlspecialchars($row["quantity"]) . "</td><td>" . htmlspecialchars($row["total_amount"]) . "</td></tr>";
-                $overall_total += $row["total_amount"]; // Add item total amount to overall total
+        <form id="checkoutForm" method="POST" action="checkout.php">
+            <?php
+            if ($result->num_rows > 0) {
+                echo "<table>";
+                echo "<tr><th>Food Name</th><th>Quantity</th><th>Total Amount</th></tr>";
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr><td>" . htmlspecialchars($row["food_name"]) . "</td><td>" . htmlspecialchars($row["quantity"]) . "</td><td>" . htmlspecialchars($row["total_amount"]) . "</td></tr>";
+                    $overall_total += $row["total_amount"]; // Add item total amount to overall total
+                }
+                echo "</table>";
+                echo "<p><strong>Overall Total Amount:</strong> ₱" . htmlspecialchars($overall_total) . "</p>"; // Display overall total
+                echo '<input type="hidden" name="overall_total" value="' . htmlspecialchars($overall_total) . '">';
+            } else {
+                echo "Your cart is empty.";
             }
-            echo "</table>";
-            echo "<p><strong>Overall Total Amount:</strong> ₱" . htmlspecialchars($overall_total) . "</p>"; // Display overall total
-        } else {
-            echo "Your cart is empty.";
-        }
-        ?>
+            ?>
+            <input type="hidden" name="overall_total" value="<?php echo htmlspecialchars($overall_total); ?>">
+            <button type="submit" class="button-proceed">Proceed to checkout</button>
+        </form>
     </main>
 
-    <footer>
-        <a href="order.php">Proceed to Order</a>
-    </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
