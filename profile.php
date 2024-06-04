@@ -119,42 +119,28 @@
     });
 
     $("#saveButton").click(function() {
-        var formData = {
-            id: <?php echo $id; ?>
-        };
-        var hasChanges = false;
+    var formData = {
+        id: <?php echo $id; ?>
+    };
 
-        // Compare original values with edited values
-        $(".edit-value").each(function() {
-            var fieldName = $(this).attr('name');
-            var newValue = $(this).val();
-            if (newValue !== originalValues[fieldName]) {
-                formData[fieldName] = newValue;
-                hasChanges = true;
-            }
-        });
+    // Add all fields to formData
+    $(".edit-value").each(function() {
+        var fieldName = $(this).attr('name');
+        formData[fieldName] = $(this).val();
+    });
 
-        if (hasChanges) {
-            $.ajax({
-                url: "php/update_profile.php", // PHP script to handle the update
-                type: "POST",
-                data: formData,
-                success: function(response) {
-                    // On success, reload the page to show the updated data or update the DOM elements
-                    location.reload();
-                },
-                error: function(xhr, status, error) {
-                    console.error("Update failed:", error); // Log any errors to the console
-                }
-            });
-        } else {
-            // If no changes were made, simply hide the edit fields
-            $(".value").show();
-            $(".edit-value").hide();
-            $("#editButton").show();
-            $("#saveButton").hide();
+    $.ajax({
+        url: "php/update_profile.php",
+        type: "POST",
+        data: formData,
+        success: function(response) {
+            location.reload();
+        },
+        error: function(xhr, status, error) {
+            console.error("Update failed:", error);
         }
     });
+});
 
     $("#logoutLink").click(function(e) {
         e.preventDefault(); // Prevent default link behavior
