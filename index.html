@@ -1,340 +1,249 @@
 <!DOCTYPE html>
+<html>
 <head>
     <title>Foodify Web Browser</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <link rel="stylesheet" href="css/layout.css">
-	<link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
-
-	<script>
-		const firebaseConfig = {
-		  apiKey: "AIzaSyAzdMp67n_AwFOj4N5AjjmVyRlvEv_whKo",
-		  authDomain: "foodifyweb.firebaseapp.com",
-		  projectId: "foodifyweb",
-		  storageBucket: "foodifyweb.appspot.com",
-		  messagingSenderId: "138349532647",
-		  appId: "1:138349532647:web:22b467fd9c41adf01c1942",
-		  measurementId: "G-0WEGSRY38X"
-		};
-	  
-		firebase.initializeApp(firebaseConfig);
-	</script>
-
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
-
-
 <body>
-	<div class="background">
-		<img src="images\backgroundmain.jpg" alt="bg">
-	</div>
+    <div class="background">
+        <img src="images/backgroundmain.jpg" alt="bg">
+    </div>
     <header id="home">
         <nav>
-            <img src="images/headerleft.png" alt="Logo"> <!-- Your image goes here -->
+            <img src="images/headerleft.png" alt="Logo">
             <ul class="central-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#team" >Team</a></li>
-                <li><a href="#about" >About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
             <ul class="right-links">
                 <li><a href="#signup">Sign up</a></li>
                 <button id="show-login" class="loginbutton">Log in</button>
             </ul>
         </nav>
-
         <div class="row banner">
             <div class="banner-room">
                 <img class="imagehome" src="images/homepageimg.png" alt="image">
                 <h1>Healthy eating,
                     <br>made easy
                     <br>with foodify.
-
                     <br><button class="button">Order Now</button>
                 </h1>
             </div>
         </div>
     </header>
-
-
     <section id="team">
-		
-		<div class="center">
-			<h1>Our Team</h1>
-		</div>
-
-		<div class="team-content">
-			<div class="box">
-				<img src="images/pfp3.png">
-				<h3>Noel M. Saranza Jr.</h3>
-				<h5>Full Stack Programmer</h5>
-				<div class="icons">
-					<a href="https://www.facebook.com/profile.php?id=61550100155472"><i class="ri-facebook-box-fill"></i></a>
-					<a href="https://www.instagram.com/_.jaydoesbetter/"><i class="ri-instagram-fill"></i></a>
-				</div>
-			</div>
-
-			<div class="box">
-				<img src="images/pfp2.png">
-				<h3>Ronjay Sarmiento</h3>
-				<h5>Designer</h5>
-				<div class="icons">
-					<a href="https://www.facebook.com/ronjay.sarmiento.98"><i class="ri-facebook-box-fill"></i></a>
-					<a href="https://www.instagram.com/_z_j_a_y_/"><i class="ri-instagram-fill"></i></a>
-				</div>
-			</div>
-
-			<div class="box">
-				<img src="images/pfp1.png">
-				<h3>Angela Nicole Pontilla</h3>
-				<h5>Designer</h5>
-				<div class="icons">
-					<a href="https://www.facebook.com/clxpnt?mibextid=ZbWKwL"><i class="ri-facebook-box-fill"></i></a>
-					<a href="https://www.instagram.com/clxpnt?igsh=NjlwNzFkbzA3bGdu"><i class="ri-instagram-fill"></i></a>
-				</div>
-			</div>
-
-			<div class="box">
-				<img src="images/pfp4.png">
-				<h3>Fernan William Sagun</h3>
-				<h5>Documentation</h5>
-				<div class="icons">
-					<a href="https://www.facebook.com/fernan027?mibextid=ZbWKwL"><i class="ri-facebook-box-fill"></i></a>
-					<a href="https://www.instagram.com/fernan.sagun?igsh=MWp4NDk1c2pmaTJubw=="><i class="ri-instagram-fill"></i></a>
-				</div>
-			</div>
-
-		</div>
+        <div class="center">
+            <h1>Our Team</h1>
+        </div>
+        <div class="team-content">
+            <div class="box">
+                <img src="images/pfp3.png">
+                <h3>Noel M. Saranza Jr.</h3>
+                <h5>Full Stack Programmer</h5>
+                <div class="icons">
+                    <a href="https://www.facebook.com/profile.php?id=61550100155472"><i class="ri-facebook-box-fill"></i></a>
+                    <a href="https://www.instagram.com/_.jaydoesbetter/"><i class="ri-instagram-fill"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pfp2.png">
+                <h3>Ronjay Sarmiento</h3>
+                <h5>Designer</h5>
+                <div class="icons">
+                    <a href="https://www.facebook.com/ronjay.sarmiento.98"><i class="ri-facebook-box-fill"></i></a>
+                    <a href="https://www.instagram.com/_z_j_a_y_/"><i class="ri-instagram-fill"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pfp1.png">
+                <h3>Angela Nicole Pontilla</h3>
+                <h5>Designer</h5>
+                <div class="icons">
+                    <a href="https://www.facebook.com/clxpnt?mibextid=ZbWKwL"><i class="ri-facebook-box-fill"></i></a>
+                    <a href="https://www.instagram.com/clxpnt?igsh=NjlwNzFkbzA3bGdu"><i class="ri-instagram-fill"></i></a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="images/pfp4.png">
+                <h3>Fernan William Sagun</h3>
+                <h5>Documentation</h5>
+                <div class="icons">
+                    <a href="https://www.facebook.com/fernan027?mibextid=ZbWKwL"><i class="ri-facebook-box-fill"></i></a>
+                    <a href="https://www.instagram.com/fernan.sagun?igsh=MWp4NDk1c2pmaTJubw=="><i class="ri-instagram-fill"></i></a>
+                </div>
+            </div>
+        </div>
     </section>
-
     <section id="about">
-		<div class="about-section">
-			<img src="images/aboutusbanner.jpg" alt="">
-			<div class="inner-container">
-				<h1>About Us</h1>
-				<p class="text">Welcome to Foodify, where convenience meets health and wellness! We're not just your average food delivery app; we're your personal nutrition assistant, fueled by cutting-edge technology and a passion for healthy living.
-	
-					At Foodify, we understand that modern life can be hectic, leaving little time to focus on nutrition and fitness. That's why we've combined the ease of food delivery with the power of fitness tracking to bring you a holistic solution for your well-being.
-					
-					Our app seamlessly integrates with your favorite fitness tracker, ensuring that every meal you order aligns perfectly with your fitness goals. Whether you're aiming to build muscle, shed a few pounds, or simply maintain a balanced diet, Foodify has you covered.
-					
-					But we're more than just a tool for tracking macros and calories. We're also a community of health enthusiasts dedicated to supporting each other on our wellness journeys. From delicious, nutritious meal options to expert advice on healthy eating, exercise, and lifestyle choices, we're here to help you thrive.
-					
-					And now, we're thrilled to announce that Foodify is expanding beyond the confines of your smartphone. With our new website, you can access all the features and benefits of Foodify from the comfort of your desktop or laptop. Whether you're planning your meals for the week or tracking your progress over time, our website offers a user-friendly experience that's tailored to your needs.
-					
-					Join the Foodify revolution today and take control of your health and fitness like never before. Together, we'll make every meal a step towards a happier, healthier you.</p>
-			</div>
-		</div>
-        
+        <div class="about-section">
+            <img src="images/aboutusbanner.jpg" alt="">
+            <div class="inner-container">
+                <h1>About Us</h1>
+                <p class="text">Welcome to Foodify, where convenience meets health and wellness! We're not just your average food delivery app; we're your personal nutrition assistant, fueled by cutting-edge technology and a passion for healthy living.
+                    At Foodify, we understand that modern life can be hectic, leaving little time to focus on nutrition and fitness. That's why we've combined the ease of food delivery with the power of fitness tracking to bring you a holistic solution for your well-being.
+                    Our app seamlessly integrates with your favorite fitness tracker, ensuring that every meal you order aligns perfectly with your fitness goals. Whether you're aiming to build muscle, shed a few pounds, or simply maintain a balanced diet, Foodify has you covered.
+                    But we're more than just a tool for tracking macros and calories. We're also a community of health enthusiasts dedicated to supporting each other on our wellness journeys. From delicious, nutritious meal options to expert advice on healthy eating, exercise, and lifestyle choices, we're here to help you thrive.
+                    And now, we're thrilled to announce that Foodify is expanding beyond the confines of your smartphone. With our new website, you can access all the features and benefits of Foodify from the comfort of your desktop or laptop. Whether you're planning your meals for the week or tracking your progress over time, our website offers a user-friendly experience that's tailored to your needs.
+                    Join the Foodify revolution today and take control of your health and fitness like never before. Together, we'll make every meal a step towards a happier, healthier you.</p>
+            </div>
+        </div>
     </section>
-
-
-
-
-
-
-	<div class="popup">
-		<div class="close-btn">&times;</div>
-		<form action="php/login.php" method="post">
-			<div class="form">
-				<img src="images/headerleft.png">
-				<div class="form-element">
-					<label for="email">Email</label>
-					<input type="text" id="emailogin" name="email" placeholder="Enter Email">
-				</div>
-				<div class="form-element">
-					<label for="password">Password</label>
-					<input type="password" id="password" name="password" placeholder="Enter password">
-					<a href="#">Forgot Password?</a>
-				</div>
-				<div class="form-element">
-					<button type="submit">Log In</button>
-				</div>
-			</div>
-		</form>
-	</div>
-	
-	
-	<section id="signup">
-		<div class="signupform">
-			<img src="images/headerleft.png">
-			
-			<form id="signupForm" action="php/signup.php" method="post">
-				<div class="signup-form-element">
-					<label for="Username">Username</label>
-					<input type="text" id="username" name="username" placeholder="Enter username" required>
-				</div>
-				<div class="signup-form-element">
-					<label for="Email">Email</label>
-					<input type="text" id="email" name="email" placeholder="Enter email" required>
-				</div>
-				<div class="signup-form-element">
-					<label for="Password">Password</label>
-					<input type="password" id="password1" name="password1" placeholder="Enter password" required>
-					<input type="checkbox" id="togglePassword1"> Show Password
-				</div>
-				<div class="signup-form-element">
-					<label for="Retypepassword">Re-type Password</label>
-					<input type="password" id="password2" name="password2" placeholder="Re-type password" required>
-					<input type="checkbox" id="togglePassword2"> Show Password
-				</div>
-				<div class="signup-form-element">
-					<label for="firstname">Firstname</label>
-					<input type="text" id="firstname" name="firstname" placeholder="Firstname" required>
-				</div>
-				<div class="signup-form-element">
-					<label for="middlename">Middlename</label>
-					<input type="text" id="middlename" name="middlename" placeholder="Middlename" required>
-				</div>
-				<div class="signup-form-element">
-					<label for="lastname">Lastname</label>
-					<input type="text" id="lastname" name="lastname" placeholder="Lastname" required>
-				</div>
-				<div class="signup-form-element">
-					<label for="age">Age</label>
-					<input type="number" id="age" name="age" placeholder="Age" required>
-				</div>
-				<div class="signup-form-element">
-					<label for="house">House No, Building, Streetname</label>
-					<input type="text" id="house" name="house" placeholder="House No, Building, Streetname" required>
-				</div>
-				<div class="signup-form-element">
-					<label for="barangay">Barangay, City</label>
-					<input type="text" id="barangay" name="barangay" placeholder="Barangay, City" required>
-				</div>
-				<div class="signup-form-element double-inputs">
-					<div>
-						<label for="region">Region, Province</label>
-						<input type="text" id="region" name="region" placeholder="Region, Province" required>
-					</div>
-					<div>
-						<label for="postal">Postal Code</label>
-						<input type="number" id="postal" name="postal" placeholder="Postal Code" required>
-					</div>
-				</div>
-				<div class="signup-form-element">
-					<label for="phoneno">Phone Number</label>
-					<input type="number" id="phone" name="phone" placeholder="Phone Number" required>
-				</div>
-				<div class="signup-form-element double-inputs">
-					<div>
-						<label for="height">Height</label>
-						<input type="number" id="height" name="height" placeholder="cm" required>
-					</div>
-					<div>
-						<label for="weight">Weight</label>
-						<input type="number" id="weight" name="weight" placeholder="kg" required>
-					</div>
-				</div>
-	
-	
-	
-				<div class="signup-form-element">
-					<button id="signupButton">Sign up</button>
-				</div>
-			</form>
-			
-
-		</div>        
+    <div class="popup">
+        <div class="close-btn">&times;</div>
+        <form action="php/login.php" method="post">
+            <div class="form">
+                <img src="images/headerleft.png">
+                <div class="form-element">
+                    <label for="email">Email</label>
+                    <input type="text" id="emailogin" name="email" placeholder="Enter Email">
+                </div>
+                <div class="form-element">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <div class="form-element">
+                    <button type="submit">Log In</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <section id="signup">
+        <div class="signupform">
+            <img src="images/headerleft.png">
+            <form id="signupForm" action="php/signup.php" method="post">
+                <div class="signup-form-element">
+                    <label for="Username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter username" required>
+                </div>
+                <div class="signup-form-element">
+                    <label for="Email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Enter email" required>
+                </div>
+                <div class="signup-form-element">
+                    <label for="Password">Password</label>
+                    <input type="password" id="password1" name="password1" placeholder="Enter password" required>
+                    <input type="checkbox" id="togglePassword1"> Show Password
+                </div>
+                <div class="signup-form-element">
+                    <label for="Retypepassword">Re-type Password</label>
+                    <input type="password" id="password2" name="password2" placeholder="Re-type password" required>
+                    <input type="checkbox" id="togglePassword2"> Show Password
+                </div>
+                <div class="signup-form-element">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="Firstname" required>
+                </div>
+                <div class="signup-form-element">
+                    <label for="middlename">Middlename</label>
+                    <input type="text" id="middlename" name="middlename" placeholder="Middlename" required>
+                </div>
+                <div class="signup-form-element">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" id="lastname" name="lastname" placeholder="Lastname" required>
+                </div>
+                <div class="signup-form-element">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Age" required>
+                </div>
+                <div class="signup-form-element">
+                    <label for="house">House No, Building, Streetname</label>
+                    <input type="text" id="house" name="house" placeholder="House No, Building, Streetname" required>
+                </div>
+                <div class="signup-form-element">
+                    <label for="barangay">Barangay, City</label>
+                    <input type="text" id="barangay" name="barangay" placeholder="Barangay, City" required>
+                </div>
+                <div class="signup-form-element double-inputs">
+                    <div>
+                        <label for="region">Region, Province</label>
+                        <input type="text" id="region" name="region" placeholder="Region, Province" required>
+                    </div>
+                    <div>
+                        <label for="postal">Postal Code</label>
+                        <input type="number" id="postal" name="postal" placeholder="Postal Code" required>
+                    </div>
+                </div>
+                <div class="signup-form-element">
+                    <label for="phoneno">Phone Number</label>
+                    <input type="number" id="phone" name="phone" placeholder="Phone Number" required>
+                </div>
+                <div class="signup-form-element double-inputs">
+                    <div>
+                        <label for="height">Height</label>
+                        <input type="number" id="height" name="height" placeholder="cm" required>
+                    </div>
+                    <div>
+                        <label for="weight">Weight</label>
+                        <input type="number" id="weight" name="weight" placeholder="kg" required>
+                    </div>
+                </div>
+                <div class="signup-form-element">
+                    <button id="signupButton">Sign up</button>
+                </div>
+            </form>
+        </div>
     </section>
+    <script src="js/loginwindow.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script>
+        function validatePasswordComplexity(password) {
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,}$/;
+            return passwordRegex.test(password);
+        }
 
+        function validatePasswordsMatch(password1, password2) {
+            return password1 === password2;
+        }
 
+        function validateForm(event) {
+            const password1 = document.getElementById('password1').value;
+            const password2 = document.getElementById('password2').value;
 
-	<script src="js/loginwindow.js"></script>
-	<script src="js/smoothscroll.js"></script>
+            if (!validatePasswordComplexity(password1)) {
+                alert('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (including underscore).');
+                event.preventDefault();
+                return false;
+            }
 
-	<script>
-		function validatePasswordComplexity(password) {
-			// Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character (including underscore)
-			const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_])[A-Za-z\d@$!%*?&_]{8,}$/;
-			return passwordRegex.test(password);
-		}
-		
-		function validatePasswordsMatch(password1, password2) {
-			return password1 === password2;
-		}
-		
-		function validateForm(event) {
-			const password1 = document.getElementById('password1').value;
-			const password2 = document.getElementById('password2').value;
-			
-			if (!validatePasswordComplexity(password1)) {
-				alert('Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (including underscore).');
-				event.preventDefault();
-				return false;
-			}
-			
-			if (!validatePasswordsMatch(password1, password2)) {
-				alert('Passwords do not match.');
-				event.preventDefault();
-				return false;
-			}
-			
-			return true;
-		}
-		
-		function togglePasswordVisibility(event, passwordFieldId) {
-			const passwordField = document.getElementById(passwordFieldId);
-			if (event.target.checked) {
-				passwordField.type = 'text';
-			} else {
-				passwordField.type = 'password';
-			}
-		}
+            if (!validatePasswordsMatch(password1, password2)) {
+                alert('Passwords do not match.');
+                event.preventDefault();
+                return false;
+            }
 
-		document.getElementById('signupForm').addEventListener('submit', function(event) {
-			const email = document.getElementById('email').value;
-			const emailRegex = /.+@.+/;
-		
-			if (!emailRegex.test(email)) {
-				alert('Please enter a valid email address.');
-				event.preventDefault();
-				return false;
-			}
-			
-			// Other form validations if any
-		});
-		
-		document.getElementById('signupForm').addEventListener('submit', validateForm);
-		document.getElementById('togglePassword1').addEventListener('change', (event) => togglePasswordVisibility(event, 'password1'));
-		document.getElementById('togglePassword2').addEventListener('change', (event) => togglePasswordVisibility(event, 'password2'));
+            return true;
+        }
 
+        function togglePasswordVisibility(event, passwordFieldId) {
+            const passwordField = document.getElementById(passwordFieldId);
+            if (event.target.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        }
 
-		const auth = firebase.auth();
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            const email = document.getElementById('email').value;
+            const emailRegex = /.+@.+/;
 
-		// Function to handle signup and send verification email
-		function handleSignUp() {
-			const email = document.getElementById('email').value;
-			const password = document.getElementById('password1').value;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                event.preventDefault();
+                return false;
+            }
+        });
 
-			// Create user with email and password
-			auth.createUserWithEmailAndPassword(email, password)
-				.then((userCredential) => {
-					// Send email verification
-					userCredential.user.sendEmailVerification()
-						.then(() => {
-							// Email sent successfully
-							alert('Verification email sent. Please check your inbox.');
-						})
-						.catch((error) => {
-							// Handle errors
-							console.error('Error sending verification email:', error);
-						});
-				})
-				.catch((error) => {
-					// Handle errors
-					console.error('Error creating user:', error);
-				});
-		}
-
-		// Add event listener to signup button
-		document.getElementById('signupButton').addEventListener('click', handleSignUp);
-
-	</script>
-		
-		
-
+        document.getElementById('signupForm').addEventListener('submit', validateForm);
+        document.getElementById('togglePassword1').addEventListener('change', (event) => togglePasswordVisibility(event, 'password1'));
+        document.getElementById('togglePassword2').addEventListener('change', (event) => togglePasswordVisibility(event, 'password2'));
+    </script>
 </body>
+</html>

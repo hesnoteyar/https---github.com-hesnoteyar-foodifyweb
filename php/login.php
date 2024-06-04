@@ -15,22 +15,32 @@ if ($conn->connect_error) {
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "SELECT id FROM users WHERE email = '$email' AND password = '$password'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // Fetch the user ID
-    $row = $result->fetch_assoc();
-    $id = $row['id'];
-
-    // Set session ID
-    $_SESSION['id'] = $id;
-
-    // Redirect to home.php
-    header("Location: /home.php");
-    exit(); 
+// Check for admin credentials first
+if ($email == 'root' && $password == 'admin') {
+    // Set session for admin
+    $_SESSION['id'] = 'admin';
+    
+    // Redirect to admin.php
+    header("Location: /admin.php");
+    exit();
 } else {
-    echo "Invalid email or password";
+    $sql = "SELECT id FROM users WHERE email = '$email' AND password = '$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Fetch the user ID
+        $row = $result->fetch_assoc();
+        $id = $row['id'];
+
+        // Set session ID
+        $_SESSION['id'] = $id;
+
+        // Redirect to home.php
+        header("Location: /home.php");
+        exit(); 
+    } else {
+        echo "Invalid email or password";
+    }
 }
 
 $conn->close();
