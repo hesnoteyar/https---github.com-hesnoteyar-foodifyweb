@@ -167,6 +167,40 @@ nav img {
     font-family: "Vollkorn", serif;
 }
 
+/* Edit buttons */
+.edit-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#editButton, #saveButton {
+    background-color: #4aad58;
+    color: white;
+    font-family: "Vollkorn", serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#editButton:hover, #saveButton:hover {
+    background-color: #3b8c47;
+}
+
+/* Input fields */
+.edit-value {
+    display: none;
+    padding: 5px;
+    font-family: "Vollkorn", serif;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    width: calc(100% - 20px);
+}
+
 /* Unit style */
 .unit {
     color: #7d7d7d;
