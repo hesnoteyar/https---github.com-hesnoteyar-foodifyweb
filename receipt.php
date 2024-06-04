@@ -115,7 +115,6 @@ $conn->close();
                 </div>
                 <div class="payment-buttons">
                     <button type="submit" name="payment_method" value="cash">Pay with Cash</button>
-                    <button type="submit" name="payment_method" value="cash">Pay with Points</button>
 
                 </div>
             </form>

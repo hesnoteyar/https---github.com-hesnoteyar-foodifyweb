@@ -461,6 +461,42 @@ button:hover {
     width: calc(100% - 10px); /* Subtracting margin */
 }
 
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    text-align: center; /* Align content center horizontally */
+}
+
+table {
+    margin-top: 20px;
+    width: 90%;
+    border-collapse: collapse;
+    font-family: "Vollkorn", serif;
+    margin: 0 auto; /* Center the table horizontally */
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #4aad58;
+    color: white;
+}
+
+tr {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
 
 
 /* Media query for smaller screens */

@@ -48,7 +48,6 @@ $total_amount = $_POST['overall_total'];
     </div>
     <div class="payment-buttons">
         <button type="submit" name="payment_method" value="cash">Pay with Cash</button>
-        <button type="submit" name="payment_method" value="points">Pay with Points</button>
     </div>
 </form>
 </div>
