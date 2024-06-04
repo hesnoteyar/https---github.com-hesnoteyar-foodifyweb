@@ -1,0 +1,489 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.vollkorn {
+    font-family: "Vollkorn", serif;
+    font-optical-sizing: auto;
+    font-weight: 400px;
+    font-style: normal;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    filter: blur(2px);
+}
+
+nav {
+    margin-top: 0px;
+    height: 73px;
+    background-color: #DDDDDD;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav img {
+    float: left;
+    margin-right: 20px;
+    height: 80px;
+    vertical-align: middle;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block; /* Ensure the ul takes only the space it needs */
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px; /* Add margin between list items */
+    margin-top: 15px;
+}
+
+nav ul li a {
+    display: block;
+    color: #7F7F7F;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Vollkorn", serif;
+}
+
+nav ul li a:hover {
+    transition: all .38s ease;
+    background-color: #4aad58;
+    border-radius: 7.5%; /* Make the anchor circular */
+    color: white;
+}
+
+.right-links {
+    float: right; /* Align the right links to the right */
+    margin-right: 20px;
+}
+
+.loginbutton {
+    border-radius: 50px; /* Make the login button slightly circular */
+    height: 50px;
+    width: 95px;
+    background-color: white;
+    border-color: #4aad58;
+    font-family: "Vollkorn", serif;
+    border: 2px solid #DDDDDD;
+    font-size: 20px;
+    color: #7F7F7F;
+}
+
+.loginbutton:hover {
+    background: #4aad58;
+    border: 2px solid #DDDDDD;
+    color: white;
+    cursor: pointer;
+}
+
+/* Banner page */
+.banner-room {
+    width: 100%;
+}
+
+.banner-room h1 {
+    float: right;
+    font-size: 400%;
+    color: #4aad58;
+    margin-right: 10%;
+    font-family: "Vollkorn", serif;
+    margin-top: 15%;
+}
+
+.banner-room img {
+    transition: all .38s ease;
+    margin-left: 7%;
+    margin-top: 8%;
+}
+
+.banner-room button {
+    border-radius: 50px;
+    background-color: #7F7F7F;
+    color: white;
+    border: 2px solid #7F7F7F;
+    border-color: white;
+    box-shadow: inset;
+    border-width: 0.1px;
+    font-family: "Vollkorn", serif;
+    height: 66px;
+    width: 200px;
+    margin-top: 100px;
+    font-size: 20px;
+}
+
+button:hover {
+    transition: all .38s ease;
+    background: #4aad58;
+    border: 2px solid #4aad58;
+    color: white;
+    cursor: pointer;
+}
+
+/* Team page */
+.team {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(white, gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.team-content {
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.team-content img {
+    width: 80%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.center h1 {
+    margin-top: 7%;
+    color: #7F7F7F;
+    font-family: "Vollkorn", serif;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.box {
+    margin: 0 10px; /* Add margin between list items */
+    padding: 16px;
+    background: #DDDDDD;
+    border-radius: 15px;
+    transition: all .38s ease;
+    height: 100%;
+}
+
+.box h3 {
+    font-family: "Vollkorn", serif;
+    font-size: 23px;
+    font-weight: 600;
+    color: #7F7F7F;
+    margin-bottom: 8px;
+}
+
+.box h5 {
+    font-size: 15px;
+    font-family: "Vollkorn", serif;
+    font-weight: 600;
+    color: #b7b4bb;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.icons i {
+    display: inline-block;
+    color: #7F7F7F;
+    font-size: 20px;
+    margin: 0 8px;
+    transition: all .38s ease;
+}
+
+.icons i:hover {
+    transform: scale(1.2);
+}
+
+.box:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+@media (max-width: 1240px) {
+    .team {
+        width: 100%;
+        height: auto;
+        padding: 90px 2%;
+    }
+
+    .center h1 {
+        font-size: 3.2rem;
+    }
+}
+
+/* About page */
+.about-section {
+    margin-top: 20%;
+    margin-left: 50px;
+    margin-right: 50px;
+    background: url('images/aboutusbanner.jpg') no-repeat left;
+    background-size: 45%;
+    height: auto;
+    background-color: transparent;
+    overflow: hidden;
+    padding: 100px;
+    position: relative; /* Add position relative to enable z-index */
+}
+
+.about-section img {
+    position: absolute; /* Position the image absolutely */
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    width: 50%;
+    height: 100%;
+    object-fit: cover; /* Scale the image to cover entire div */
+    z-index: -1; /* Send image behind other content */
+}
+
+.inner-container {
+    border-radius: 10px;
+    width: 55%;
+    float: right;
+    background-color: white;
+    padding: 150;
+}
+
+.inner-container h1 {
+    margin-bottom: 30px;
+    margin-left: 30px;
+    color: #4aad58;
+    font-size: 30px;
+    font-family: "Vollkorn", serif;
+}
+
+.text {
+    font-size: 14px;
+    font-family: "Vollkorn", serif;
+    color: #7F7F7F;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/* Pop up Window for Login */
+.popup {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 380px;
+    padding: 20px 30px;
+    background: #D9D9D9;
+    border-radius: 10px;
+    transition: top 0ms ease-in-out 200ms, opacity 200ms, ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+}
+
+.popup.active {
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: top 0ms ease-in-out 0ms, opacity 200ms, ease-in-out 0ms, transform 200ms ease-in-out 0ms;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: #7F7F7F;
+    color: white;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.popup .form img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    margin-bottom: 10%;
+}
+
+.popup .form .form-element label {
+    font-size: 20px;
+    font-family: "Vollkorn", serif;
+    text-align: center;
+    color: #7F7F7F;
+}
+
+.popup .form .form-element input[type="text"],
+.popup .form .form-element input[type="password"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    display: block;
+    color: gray;
+    width: 93%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-family: "Vollkorn", serif;
+}
+
+.popup .form .form-element a {
+    font-family: "Vollkorn", serif;
+    font-size: 14px;
+    display: block;
+    text-decoration: none;
+    text-align: right;
+    color: #4aad58;
+}
+
+.popup .form .form-element button {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    font-size: 19px;
+    border-radius: 10px;
+    border: none;
+    font-family: "Vollkorn", serif;
+    color: #7F7F7F;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.popup .form .form-element button:hover {
+    background-color: #4aad58;
+    color: white;
+    cursor: pointer;
+}
+
+/* Signup section */
+#signup {
+    padding: 50px 0;
+    margin-top: 10%;
+}
+
+.signupform {
+    background-color: #D9D9D9;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.signupform img {
+    display: block;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form-element {
+    margin-bottom: 20px;
+}
+
+.signup-form-element label {
+    display: block;
+    font-size: 18px;
+    font-family: "Vollkorn", serif;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.signup-form-element input[type="text"],
+.signup-form-element input[type="password"],
+.signup-form-element input[type="number"] {
+    width: 100%!important;
+    padding: 12px!important;
+    border: 1px solid white!important;
+    border-radius: 10px!important;
+    font-size: 16px!important;
+    font-family: "Vollkorn", serif!important;
+    color: #555!important;
+    box-sizing: border-box!important;
+}
+
+.signup-form-element button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #4aad58;
+    font-family: "Vollkorn", serif;
+    background-color: white;
+    cursor: pointer;
+}
+
+.signup-form-element button:hover {
+    background-color: #4aad58;
+    color: white;
+}
+
+/* Side by side inputs */
+.signup-form-element.double-inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.signup-form-element.double-inputs input[type="text"],
+.signup-form-element.double-inputs input[type="number"] {
+    width: calc(100% - 10px); /* Subtracting margin */
+}
+
+
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+    nav img {
+        float: none;
+        margin-right: 0;
+    }
+
+    nav ul {
+        display: block;
+        text-align: center;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .right-links {
+        float: none;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
