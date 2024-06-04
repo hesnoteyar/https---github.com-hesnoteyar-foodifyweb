@@ -24,6 +24,9 @@ if(isset($_SESSION['id'])) {
     echo "Error: User ID not found";
 }
 
+echo "<script>console.log('Overall Total value:', " . json_encode($_POST['overall_total'] ?? 'Not set') . ");</script>";
+
+
 // Create table if it doesn't exist
 $sql = "CREATE TABLE IF NOT EXISTS transactions (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -45,11 +48,11 @@ if ($conn->query($sql) !== TRUE) {
 if($userID) {
     // Retrieve session variables
     $orderName = "cart order"; // Set the order name to "cart order"
-    $orderPrice = $_POST['overall_total']; // Retrieve total amount from form submission
+    $orderPrice = $_POST['total_amount']; // Retrieve total amount from form submission
     $orderQuantity = 1; // Set the order quantity to 1 (assuming it's one cart order)
 
     // Calculate the total price
-    $totalPrice = $_POST['overall_total']; // Retrieve total amount from form submission
+    $totalPrice = $_POST['total_amount']; // Retrieve total amount from form submission
 
     // Check if the form is submitted and payment method is set
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['payment_method']) && isset($_POST['room_number'])) {

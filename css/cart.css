@@ -98,7 +98,7 @@ nav img {
 }
 
 main {
-    padding: 400px 20px 20px 20px; /* Adjusted padding to ensure content is not hidden behind the navbar */
+    padding: 200 20px 20px 20px; /* Adjusted padding to ensure content is not hidden behind the navbar */
     margin: 20px;
     font-family: "Vollkorn", serif;
 }

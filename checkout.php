@@ -12,6 +12,11 @@ $total_amount = $_POST['overall_total'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="css/checkout.css">
+
+    <script>
+    console.log('Overall Total:', <?php echo json_encode($_POST['overall_total'] ?? 'Not set'); ?>);
+    </script>
+    
 </head>
 <body>
 
@@ -41,14 +46,16 @@ $total_amount = $_POST['overall_total'];
 
     <!-- Form for room number and payment method -->
 <form action="php/process_payment.php" method="post">
-<input type="hidden" name="total_amount" value="<?php echo $total_amount; ?>"> <!-- Add hidden input field for total_amount -->
     <div class="checkout-input">
         <label for="room_number">Room Number:</label>
         <input type="number" id="room_number" name="room_number" required>
     </div>
+    <input type="hidden" name="total_amount" value="<?php echo $total_amount; ?>"> <!-- Add hidden input field for total_amount -->
     <div class="payment-buttons">
         <button type="submit" name="payment_method" value="cash">Pay with Cash</button>
     </div>
+
+    
 </form>
 </div>
 
