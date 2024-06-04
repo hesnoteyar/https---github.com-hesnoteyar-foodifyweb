@@ -1,5 +1,11 @@
 <?php
 // cart.php
+session_start(); // Start the session to access session variables
+if (!isset($_SESSION['id'])) {
+    die("User not logged in");
+}
+
+$user_id = $_SESSION['id']; // Retrieve the user ID from the session
 $total_amount = $_POST['overall_total'];
 
 // Database connection details
@@ -16,9 +22,12 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// SQL query to fetch cart items
-$sql = "SELECT food_name, quantity, total_amount FROM cart_items";
-$result = $conn->query($sql);
+// SQL query to fetch cart items for the logged-in user
+$sql = "SELECT food_name, quantity, total_amount FROM cart_items WHERE user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $overall_total = 0; // Initialize overall total amount
 ?>
@@ -59,30 +68,28 @@ $overall_total = 0; // Initialize overall total amount
     </nav>
 </header>
 
-
-    <main>
-        <form id="checkoutForm" method="POST" action="checkout.php">
-            <?php
-            if ($result->num_rows > 0) {
-                echo "<table>";
-                echo "<tr><th>Food Name</th><th>Quantity</th><th>Total Amount</th></tr>";
-                // Output data of each row
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . htmlspecialchars($row["food_name"]) . "</td><td>" . htmlspecialchars($row["quantity"]) . "</td><td>" . htmlspecialchars($row["total_amount"]) . "</td></tr>";
-                    $overall_total += $row["total_amount"]; // Add item total amount to overall total
-                }
-                echo "</table>";
-                echo "<p><strong>Overall Total Amount:</strong> ₱" . htmlspecialchars($overall_total) . "</p>"; // Display overall total
-                echo '<input type="hidden" name="overall_total" value="' . htmlspecialchars($overall_total) . '">';
-            } else {
-                echo "Your cart is empty.";
+<main>
+    <form id="checkoutForm" method="POST" action="checkout.php">
+        <?php
+        if ($result->num_rows > 0) {
+            echo "<table>";
+            echo "<tr><th>Food Name</th><th>Quantity</th><th>Total Amount</th></tr>";
+            // Output data of each row
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . htmlspecialchars($row["food_name"]) . "</td><td>" . htmlspecialchars($row["quantity"]) . "</td><td>" . htmlspecialchars($row["total_amount"]) . "</td></tr>";
+                $overall_total += $row["total_amount"]; // Add item total amount to overall total
             }
-            ?>
-            <input type="hidden" name="overall_total" value="<?php echo htmlspecialchars($overall_total); ?>">
-            <button type="submit" class="button-proceed">Proceed to checkout</button>
-        </form>
-    </main>
-
+            echo "</table>";
+            echo "<p><strong>Overall Total Amount:</strong> ₱" . htmlspecialchars($overall_total) . "</p>"; // Display overall total
+            echo '<input type="hidden" name="overall_total" value="' . htmlspecialchars($overall_total) . '">';
+        } else {
+            echo "Your cart is empty.";
+        }
+        ?>
+        <input type="hidden" name="overall_total" value="<?php echo htmlspecialchars($overall_total); ?>">
+        <button type="submit" class="button-proceed">Proceed to order</button>
+    </form>
+</main>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
@@ -103,9 +110,7 @@ $(document).ready(function(){
             }
         });
     });
-});
 
-$(document).ready(function(){
     $("#logoutLink").click(function(e){
         e.preventDefault(); // Prevent default link behavior
         
@@ -123,8 +128,12 @@ $(document).ready(function(){
         });
     });
 });
-
 </script>
 
 </body>
 </html>
+
+<?php
+$stmt->close();
+$conn->close();
+?>

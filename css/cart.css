@@ -98,11 +98,13 @@ nav img {
 }
 
 main {
+    padding: 400px 20px 20px 20px; /* Adjusted padding to ensure content is not hidden behind the navbar */
     margin: 20px;
+    font-family: "Vollkorn", serif;
 }
 
 table {
-    margin-top: 10%;
+    margin-top: 20px;
     width: 100%;
     border-collapse: collapse;
     font-family: "Vollkorn", serif;
@@ -134,7 +136,6 @@ strong {
     font-family: "Vollkorn", serif;
 }
 
-
 footer a:hover {
     background-color: white;
     color: #4aad58;
@@ -159,6 +160,3 @@ footer a:hover {
 #checkoutForm {
     text-align: center;
 }
-
-
-
